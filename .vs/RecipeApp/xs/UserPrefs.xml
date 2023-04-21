@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{E7C2545A-AE68-46B3-8CD9-4BA0967EDB84}|Default">
+  <MonoDevelop.Ide.ItemProperties.RecipeApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/Recipe.cs">
+    <Files>
+      <File FileName="RecipeApp/Program.cs" />
+      <File FileName="RecipeApp/InputHandler.cs" />
+      <File FileName="RecipeApp/Recipe.cs" Line="18" Column="1" />
+      <File FileName="RecipeApp/Ingredients.cs" />
+      <File FileName="RecipeApp/Steps.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RecipeApp" expanded="True">
+            <Node name="RecipeApp" expanded="True">
+              <Node name="Recipe.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>
