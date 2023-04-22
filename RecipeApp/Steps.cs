@@ -9,6 +9,12 @@ namespace RecipeApp
 		{
 			Step = step;
 		}
+
+		public string toString()
+		{
+			string output = string.Format("{0}",Step);
+			return output;
+		}
 	}
 }
 

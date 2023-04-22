@@ -6,12 +6,25 @@ namespace RecipeApp
 		public string IngredientName { get; set; }
 		public string UnitOfMeasure { get; set; }
 		public double IngredientQty { get; set; }
+		public double IngredientQtyOriginal;
 
 		public Ingredients(string ingredientName, double ingredientQty, string unitOfMeasure)
 		{
 			IngredientName = ingredientName;
 			UnitOfMeasure = unitOfMeasure;
 			IngredientQty = ingredientQty;
+		}
+
+		public string toString()
+		{
+			string output = string.Format("{0} {1} of {2}", IngredientQty, UnitOfMeasure, IngredientName);
+			return output;
+        }
+
+		public void Scale(double factor)
+		{
+			IngredientQtyOriginal = IngredientQty;
+			IngredientQty *= factor;
 		}
 	}
 }

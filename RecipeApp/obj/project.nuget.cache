@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0TqKy5erkZDOSOTNEUXEIIhYDsqDjjdaELwfCH7sctFIqvXNIXsR29egWNLRucZIUhYzYwCNpxxreSWQoymjKw==",
+  "dgSpecHash": "I45gUohvSGNP3l0AnW6o28QyooFGx7a/Pgd9mZVLZFifWd/zehjNZaYnz1IdaXy0SCxMshY2kOQx7W/xL6FK9w==",
   "success": true,
-  "projectFilePath": "/Users/davidmellors/Projects/RecipeApp/RecipeApp/RecipeApp.csproj",
+  "projectFilePath": "/Users/davidmellors/repos/RecipeApp/RecipeApp/RecipeApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

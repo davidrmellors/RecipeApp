@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections;
+
 namespace RecipeApp
 {
+
 	public class Recipe
 	{
-		Ingredients[] ingredients;
-		Steps[] steps;
+		public Ingredients[] ingredients;
+		public Steps[] steps;
 
 		public Recipe(Ingredients[] ingredients, Steps[] steps)
 		{
@@ -13,33 +15,33 @@ namespace RecipeApp
 			this.steps = steps;
 		}
 
-		public Recipe()
+		public string toString()
 		{
+            int recipeNum = 1;
+            string output = "";
+            
+            int count = 1;
+            output += "      -----ingredients-----\n";
 
-		}
+            foreach (Ingredients ingredient in ingredients)
+            {
+                output += string.Format("{0}: {1}\n", count, ingredient.toString());
+                count++;
+            }
 
-		public void PrintRecipe(List<Recipe> recipes)
-		{
+            output+=("\n      -----steps-----\n");
+            count = 1;
+            foreach (Steps step in steps) { 
 
-			foreach(Recipe recipe in recipes)
-			{
-                int count = 1;
-                foreach (Ingredients ingredient in recipe.ingredients)
-				{
-					Console.WriteLine("Ingredient {0}: {1} {2} of {3}", count, ingredient.IngredientQty, ingredient.UnitOfMeasure, ingredient.IngredientName);
-                    count++;
-                }
+                output += string.Format("{0}: {1}\n", count, step.toString());
+                count++;
+            }
+            output += "\n";
 
-				count = 1;
-				foreach(Steps step in recipe.steps)
-				{
-					Console.WriteLine("Step {0}: {1}", count, step.Step);
-                    count++;
-                }
-
-			}
-		}
-
-	}
+            //System.out.println(count+": "+step.toString());
+            return output;
+            
+        }
+    }
 }
 

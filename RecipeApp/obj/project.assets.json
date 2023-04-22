@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/davidmellors/Projects/RecipeApp/RecipeApp/RecipeApp.csproj",
+      "projectUniqueName": "/Users/davidmellors/repos/RecipeApp/RecipeApp/RecipeApp.csproj",
       "projectName": "RecipeApp",
-      "projectPath": "/Users/davidmellors/Projects/RecipeApp/RecipeApp/RecipeApp.csproj",
+      "projectPath": "/Users/davidmellors/repos/RecipeApp/RecipeApp/RecipeApp.csproj",
       "packagesPath": "/Users/davidmellors/.nuget/packages/",
-      "outputPath": "/Users/davidmellors/Projects/RecipeApp/RecipeApp/obj/",
+      "outputPath": "/Users/davidmellors/repos/RecipeApp/RecipeApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/davidmellors/.nuget/NuGet/NuGet.Config"
