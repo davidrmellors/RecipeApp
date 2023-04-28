@@ -4,63 +4,95 @@ namespace RecipeApp
 {
 	public class RecipeList
 	{
-		static List<Recipe> recipeList = new List<Recipe>();
+        //*For part 2 (static List<Recipe> recipeList = new List<Recipe>());
+
+
+        //Array of type Recipe used to store 
+        static Recipe[] recipeList = new Recipe[1];
+        //Constructor takes object of Recipe class and stores in recipeList array
 		public RecipeList(Recipe recipe)
 		{
-            recipeList.Add(recipe);
+            recipeList[0] = recipe;
 		}
 
         public static void PrintRecipe()
         {
-            int recipeNum = 1;
-            foreach (Recipe recipe in recipeList)
+            //Clears the console window to de-clutter console output
+            Console.Clear();
+
+            //If recipeList is not empty then display the recipe details
+            if (!recipeList.Contains(default(Recipe)))
             {
-                Console.WriteLine("\n----------[ {0}{1} Recipe ]----------", recipeNum, InputHandler.GetNumberSuffix(recipeNum));
-                Console.WriteLine(recipe.toString());
-                recipeNum++;
+                Console.WriteLine("-----Here are the details of your Recipe-----");
+
+                //used to indicate the recipe number
+                int recipeNum = 1;
+
+                //for each object of type recipe in the recipeList array, call the recipe.toString() method that returns
+                //all recipe details
+                foreach (Recipe recipe in recipeList)
+                {
+                    Console.WriteLine("\n----------[ {0}{1} Recipe ]----------\n", recipeNum, InputHandler.GetNumberSuffix(recipeNum));
+                    Console.WriteLine(recipe.toString());
+                    recipeNum++;
+                }
+                Console.WriteLine("---------------------------------------------");
+            }else
+            {
+                //if no recipes have been captured output this message to console
+                Console.WriteLine("No Recipes have been captured!");
             }
-            Console.WriteLine("Press any key to continue");    
+            Console.Write("\nPress and key to continue >> ");
+            Console.ReadLine();
         }
 
+        //Method used to ask user by which value they want to scale their recipe quantity by
+        //value then used when caling the Scale method from Ingredients class
         public static void ScaleRecipe()
         {
             Console.WriteLine("Choose an option:");
             Console.WriteLine("1. Scale recipe by 0.5");
             Console.WriteLine("2. Scale recipe by 2");
             Console.WriteLine("3. Scale recipe by 3");
+            Console.WriteLine("4. Exit");
+            Console.Write(">> ");
 
             int input = InputHandler.ValidateInt(Console.ReadLine());
+            double scale = 1;
 
+            //Requires user to enter a valid menu option
             while(input > 3 || input < 1){
                 Console.Write("Menu option does not exist\nPlease try again >> ");
                 input = InputHandler.ValidateInt(Console.ReadLine());
             }
 
-            if (input.Equals(1))
+            if (input != 4)
             {
-                Recipe recipe = (Recipe)recipeList[0];
-                foreach(Ingredients ingedients in recipe.ingredients)
+                switch (input)
                 {
-                    ingedients.Scale(0.5);
+                    case 1:
+                        scale = 0.5;
+                        break;
+                    case 2:
+                        scale = 2;
+                        break;
+                    case 3:
+                        scale = 3;
+                        break;
                 }
-            }
-            else if (input.Equals(2)){
+
+                //unbox object of Type recipe in recipeList array and store it in new object recipe
                 Recipe recipe = (Recipe)recipeList[0];
+
+                //For each ingredient in the recipe call Scale() method to scale the quantity
                 foreach (Ingredients ingedients in recipe.ingredients)
                 {
-                    ingedients.Scale(2);
+                    ingedients.Scale(scale);
                 }
-            }
-            else if (input.Equals(3))
-            {
-                Recipe recipe = (Recipe)recipeList[0];
-                foreach (Ingredients ingedients in recipe.ingredients)
-                {
-                    ingedients.Scale(3);
-                }
-            }
+            } 
         }
 
+        //Takes original quantities of ingredients and replaces the new quantity
         public static void ResetRecipe()
         {
             Console.WriteLine("Choose an option:");
@@ -70,13 +102,15 @@ namespace RecipeApp
 
             int input = InputHandler.ValidateInt(Console.ReadLine());
 
+            //Requires user to enter a valid menu option
             while (input > 2 || input < 1)
             {
                 Console.Write("Menu option does not exist\nPlease try again >> ");
                 input = InputHandler.ValidateInt(Console.ReadLine());
             }
 
-            if(input!= 2)
+
+            if(input != 2)
             {
                 if (input.Equals(1))
                 {
@@ -114,7 +148,7 @@ namespace RecipeApp
 
                 if (confirm.Equals("yes"))
                 {
-                    recipeList.Clear();
+                    recipeList[0] = default(Recipe);
                 }
             }
         }
