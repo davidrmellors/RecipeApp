@@ -1,30 +1,30 @@
 ﻿<Properties StartupConfiguration="{E7C2545A-AE68-46B3-8CD9-4BA0967EDB84}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/RecipeList.cs">
+  <MonoDevelop.Ide.ItemProperties.RecipeApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/Program.cs">
     <Files>
-      <File FileName="RecipeApp/Program.cs" Line="1" Column="1" />
-      <File FileName="RecipeApp/InputHandler.cs" Line="165" Column="77" />
-      <File FileName="RecipeApp/RecipeList.cs" Line="58" Column="34" />
-      <File FileName="RecipeApp/Recipe.cs" Line="1" Column="1" />
-      <File FileName="RecipeApp/Ingredients.cs" Line="26" Column="42" />
-      <File FileName="RecipeApp/Steps.cs" Line="1" Column="1" />
+      <File FileName="RecipeApp/Program.cs" Line="3" Column="1" />
+      <File FileName="RecipeApp/InputHandler.cs" Line="3" Column="1" />
+      <File FileName="RecipeApp/RecipeList.cs" Line="3" Column="1" />
+      <File FileName="RecipeApp/Recipe.cs" Line="3" Column="1" />
+      <File FileName="RecipeApp/Ingredients.cs" Line="3" Column="1" />
+      <File FileName="RecipeApp/Steps.cs" Line="3" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RecipeApp" expanded="True">
             <Node name="RecipeApp" expanded="True">
-              <Node name="RecipeList.cs" selected="True" />
+              <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.RecipeApp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

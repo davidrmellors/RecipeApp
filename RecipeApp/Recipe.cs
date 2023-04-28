@@ -1,20 +1,26 @@
-﻿using System;
+﻿// Code Attribution
+// Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
+
+using System;
 using System.Collections;
 
 namespace RecipeApp
 {
-
+    //Class for storing all recipe details
 	public class Recipe
 	{
 		public Ingredients[] ingredients;
 		public Steps[] steps;
 
+        //Ingredients[] and Steps[] taken as parameters in Recipe constructor
+        //In order to group both arrays into one recipe object
 		public Recipe(Ingredients[] ingredients, Steps[] steps)
 		{
 			this.ingredients = ingredients;
 			this.steps = steps;
 		}
 
+        //method used to return recipe details as a string
 		public string toString()
 		{
             int recipeNum = 1;
