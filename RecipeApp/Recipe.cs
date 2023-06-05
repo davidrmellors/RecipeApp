@@ -9,13 +9,15 @@ namespace RecipeApp
     //Class for storing all recipe details
 	public class Recipe
 	{
+        public string recipeName;
 		public Ingredients[] ingredients;
 		public Steps[] steps;
 
         //Ingredients[] and Steps[] taken as parameters in Recipe constructor
         //In order to group both arrays into one recipe object
-		public Recipe(Ingredients[] ingredients, Steps[] steps)
+		public Recipe(string recipeName, Ingredients[] ingredients, Steps[] steps)
 		{
+            this.recipeName = recipeName;
 			this.ingredients = ingredients;
 			this.steps = steps;
 		}

@@ -6,15 +6,15 @@ namespace RecipeApp
 {
 	public class RecipeList
 	{
-        //*For part 2 (static List<Recipe> recipeList = new List<Recipe>());
+        static List<Recipe> recipeList = new List<Recipe>();
 
 
         //Array of type Recipe used to store 
-        static Recipe[] recipeList = new Recipe[1];
+        //static Recipe[] recipeList = new Recipe[1];
         //Constructor takes object of Recipe class and stores in recipeList array
 		public RecipeList(Recipe recipe)
 		{
-            recipeList[0] = recipe;
+            recipeList.Add(recipe);
 		}
 
         public static void PrintRecipe()
@@ -25,8 +25,10 @@ namespace RecipeApp
             //If recipeList is not empty then display the recipe details
             if (!recipeList.Contains(default(Recipe)))
             {
-                Console.WriteLine("-----Here are the details of your Recipe-----");
+                Console.WriteLine("-----Here are your Recipes-----");
 
+
+                recipeList.Sort();
                 //used to indicate the recipe number
                 int recipeNum = 1;
 
@@ -34,9 +36,8 @@ namespace RecipeApp
                 //all recipe details
                 foreach (Recipe recipe in recipeList)
                 {
-                    Console.WriteLine("\n----------[ {0}{1} Recipe ]----------\n", recipeNum, InputHandler.GetNumberSuffix(recipeNum));
+                    Console.WriteLine("\n----------[ {0} ]----------\n", recipe.recipeName, InputHandler.GetNumberSuffix(recipeNum));
                     Console.WriteLine(recipe.toString());
-                    recipeNum++;
                 }
                 Console.WriteLine("---------------------------------------------");
             }else

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xchpiqUQbnQSWlnNKBHL/LRWLI8y70BVkItdNFyIoYYG/TMID0gxfLvq/FjOfLN7StUPApWOaR9LgcBBJBpYTw==",
+  "dgSpecHash": "NCoG58D5RiQplrNuvDFt3fN5e/bvhYl0ZBIyqWsDoHqpaOtJdks+thw3jh1XzdZ36wPsiEXGKw+Uxt2erMpu3w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj",
+  "projectFilePath": "/Users/davidmellors/repos/RecipeApp/RecipeApp/RecipeApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Xml.Linq;
+using Microsoft.VisualBasic.FileIO;
 
 namespace RecipeApp
 {
@@ -85,6 +86,25 @@ namespace RecipeApp
         //class, using objects
         public static void AddRecipe()
         {
+            Console.WriteLine("----------[Recipe]----------");
+
+            string recipeName;
+            bool correct = false;
+
+            do
+            {
+                Console.Write("\nPlease enter the name of your recipe >> ");
+                recipeName = NotNull(Console.ReadLine());
+
+                Console.Write("Is your recipe name correct?\nType [yes] or [no]: ");
+                if (Console.ReadLine().Equals("yes"))
+                    correct = true;
+
+            } while (correct == false);
+            
+
+            
+
             //Clears the console window to de-clutter console output
             Console.Clear();
             //Ingredients section
@@ -121,7 +141,7 @@ namespace RecipeApp
             for (int i = 0; i < numOfIngredients; i++)
             {
                 //bool variable used to condition the do while loop
-                bool correct = false;
+                correct = false;
                 //strings used to store the name and unitOfMeasure of each ingredient
                 string ingredientName, unitOfMeasure;
                 //dobule used to store the Quantity of each ingredient
@@ -222,7 +242,7 @@ namespace RecipeApp
             //entered by the user
             for (int i = 0; i < numOfSteps; i++)
             {
-                bool correct = false;
+                correct = false;
                 string step;
                 do
                 {
@@ -253,7 +273,7 @@ namespace RecipeApp
             //After all ingredients and steps have been entered the ingredients array and
             //steps array are parsed to the Recipes class using the object of the recipe class
             //named recipe
-            Recipe recipe = new Recipe(ingredients, steps);
+            Recipe recipe = new Recipe(recipeName, ingredients, steps);
 
             //the Recipe object recipe is then parsed to the RecipeList class using the object
             //of the RecipeList class named recipeList
