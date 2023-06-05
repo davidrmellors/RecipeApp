@@ -35,13 +35,28 @@ namespace RecipeApp
                 Console.WriteLine("4. Reset recipe");
                 Console.WriteLine("5. Clear recipe");
                 Console.WriteLine("6. Exit");
-                Console.Write(">> ");
+                
 
                 //Store user's input in option to analyze which menu option they
                 //choose
-                option = ValidateInt(Console.ReadLine());
+                bool isValid = false;
+
+                while (!isValid)
+                {
+                    Console.Write(">> ");
+                    try
+                    {
+                        option = int.Parse(Console.ReadLine());
+                        isValid = true;
+                    }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                    }
+                }
                 //switch statement which calls the relevent method responsible
                 //for the funtionality of the menu option the user chooses
+
                 switch(option)
                 {
                     case 1:
@@ -76,10 +91,27 @@ namespace RecipeApp
             Console.WriteLine("      -----ingredients-----");
 
             //Ask user to enter the number of ingredients for their recipe
-            Console.Write("\nPlease enter the number of ingredients for your recipe: ");
+
             //verify user input is an int using ValidateInt() method and then storing
             //the verified value in numOfIngredients varaible
-            int numOfIngredients = ValidateInt(Console.ReadLine());
+
+            int numOfIngredients = 0;
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.Write("\nPlease enter the number of ingredients your recipe requires, as an integer: ");
+                try
+                {
+                    numOfIngredients = int.Parse(Console.ReadLine());
+                    isValid = true;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Invalid input: " + e.Message);
+                }
+            }
+
+
 
             //Create new Array of type Ingredients with the length of numOfIngredients
             Ingredients[] ingredients = new Ingredients[numOfIngredients];
@@ -106,17 +138,31 @@ namespace RecipeApp
                         "\nthis format: [quantity] [unit of measure] [ingredient name] " +
                         "\nfor example: 1 cup milk", (i + 1), GetNumberSuffix(i + 1));
 
-                    Console.Write("\nQuantity: ");
+                    ingredientQty = 0;
+                    isValid = false;
+                    while (!isValid)
+                    {
+                        Console.Write("\nPlease enter the quantity of your ingredient as a number: ");
+                        try
+                        {
+                            ingredientQty = double.Parse(Console.ReadLine());
+                            isValid = true;
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Invalid input: " + e.Message);
+                        }
+                    }
+                    
                     //validate user input is a double using ValidateDouble() method
                     //and storing it in ingredientQty variable.
-                    ingredientQty = ValidateDouble(Console.ReadLine());
 
-                    Console.Write("Unit of measurement: ");
+                    Console.Write("\nPlease enter the unit of measurement of your ingredient: ");
                     //validate user input is not empty using NotNull() method
                     //and storing the returned value in unitOfMeasure variable
                     unitOfMeasure = (NotNull(Console.ReadLine()));
 
-                    Console.Write("Name of ingredient: ");
+                    Console.Write("Please enter the name of your ingredient: ");
                     //validate user input is not empty using NotNull() method
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
@@ -149,9 +195,24 @@ namespace RecipeApp
             Console.WriteLine("      -----steps-----");
 
             //Ask user to enter number of steps
-            Console.Write("\nPlease enter the number of steps your recipe requires: ");
+
+            int numOfSteps = 0;
+            isValid = false;
+            while (!isValid)
+            {
+                Console.Write("\nPlease enter the number of steps your recipe requires: ");
+                try
+                {
+                    numOfSteps = int.Parse(Console.ReadLine());
+                    isValid = true;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Invalid input: " + e.Message);
+                }
+            }
+            
             //Validate user input using ValidateInt() method and store in numOfSteps variable
-            int numOfSteps = ValidateInt(Console.ReadLine());
 
             //Create new array of type Steps of size numOfSteps
             Steps[] steps = new Steps[numOfSteps];
