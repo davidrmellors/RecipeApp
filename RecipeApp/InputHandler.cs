@@ -28,7 +28,7 @@ namespace RecipeApp
                 Console.Clear();
                 Console.WriteLine("-----------------");
                 Console.WriteLine("   Recipe App  ");
-                Console.WriteLine("-----------------");
+                Console.WriteLine("-----------------\n");
 
                 //Menu used to display all features of Recipe App
                 Console.WriteLine("Choose an option:");
@@ -38,29 +38,15 @@ namespace RecipeApp
                 Console.WriteLine("4. Reset recipe");
                 Console.WriteLine("5. Clear recipe");
                 Console.WriteLine("6. Exit");
-                
+
 
                 //Store user's input in option to analyze which menu option they
                 //choose
-                bool isValid = false;
-
-                while (!isValid)
-                {
-                    Console.Write(">> ");
-                    try
-                    {
-                        option = int.Parse(Console.ReadLine());
-                        isValid = true;
-                    }
-                    catch(FormatException e)
-                    {
-                        Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
-                    }
-                }
+                int input = InputHandler.ValidateInt();
                 //switch statement which calls the relevent method responsible
                 //for the funtionality of the menu option the user chooses
 
-                switch(option)
+                switch (input)
                 {
                     case 1:
                         AddRecipe();
@@ -118,10 +104,6 @@ namespace RecipeApp
             Console.WriteLine("Ingredients for {0}  ", recipeName);
             Console.WriteLine("----------------------");
             
-  
-
-            
-
             //verify user input is an int using ValidateInt() method and then storing
             //the verified value in numOfIngredients varaible
 
@@ -199,7 +181,7 @@ namespace RecipeApp
                     //and storing the returned value in unitOfMeasure variable
                     unitOfMeasure = (NotNull(Console.ReadLine()));
 
-                    Console.Write("\nPlease enter the name of your ingredient >> ");
+                    Console.Write("Please enter the name of your ingredient >> ");
                     //validate user input is not empty using NotNull() method
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
@@ -234,15 +216,15 @@ namespace RecipeApp
 
                     //Outputs the details of the nth ingredient
                     Console.WriteLine("\n[{0}{1} Ingredient]" +
-                        "\ningredient quantity: {2}" +
-                        "\ningredient unit of measurement: {3} " +
-                        "\ningredient name: {4}" +
-                        "\ningredient total calories: {5}" +
-                        "\ningredient food group: {6}", (i + 1), GetNumberSuffix(i + 1), ingredientQty, unitOfMeasure,
+                        "\nquantity: {2}" +
+                        "\nunit of measurement: {3} " +
+                        "\nname: {4}" +
+                        "\ntotal calories: {5}" +
+                        "\nfood group: {6}", (i + 1), GetNumberSuffix(i + 1), ingredientQty, unitOfMeasure,
                         ingredientName, ingredientCalories, ingredientFoodGroup);
 
                     //Asks user if the ingredient details they entered for the nth ingredient is accurate
-                    Console.Write("\nAre your {0}{1} ingredient details accurate?" +
+                    Console.Write("\nIs your {0}{1} ingredient correct?" +
                         "\nType [yes] or [no] >> ", (i + 1), GetNumberSuffix(i + 1));
 
                     //if the user types yes the loop will break
@@ -297,7 +279,7 @@ namespace RecipeApp
                     Console.Clear();
                     //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("----------------------");
-                    Console.WriteLine("Steps for {0}  ", recipeName);
+                    Console.WriteLine("  Steps for {0}  ", recipeName);
                     Console.WriteLine("----------------------\n");
 
                     Console.Write("Please enter step {0}: ", (i + 1));
@@ -308,7 +290,7 @@ namespace RecipeApp
                     Console.Clear();
                     //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("----------------------");
-                    Console.WriteLine("Steps for {0}  ", recipeName);
+                    Console.WriteLine("  Steps for {0}  ", recipeName);
                     Console.WriteLine("----------------------\n");
 
                     Console.WriteLine("Step {0}: {1}", (i + 1), step);
@@ -335,17 +317,25 @@ namespace RecipeApp
         //if the conversion fails it means the user has not entered an int
         //the user is then asked to re-enter an int until the conversion is
         //successful. The user entered int is then returned
-        public static int ValidateInt(string num)
+        public static int ValidateInt()
 		{
-			int c;
-			while(int.TryParse(num, out c) == false)
-			{
-				Console.Write("Please enter an integer: ");
-				num = Console.ReadLine();
-			}
-			Console.WriteLine("Captured value: {0}\n", c);
-			return c;
-		}
+            int num = 0;
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.Write(">> ");
+                try
+                {
+                    num = int.Parse(Console.ReadLine());
+                    isValid = true;
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                }
+            }
+            return num;
+        }
 
         //Takes a string num as parameter and trys to convert num to double
         //if the conversion fails it means the user has not entered a double

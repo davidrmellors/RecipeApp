@@ -33,11 +33,11 @@ namespace RecipeApp
             foreach (Ingredients ingredient in ingredientsList)
             {
                 output += string.Format("[{0}{1} Ingredient]" +
-                    "\n\n{2}\n", count, InputHandler.GetNumberSuffix(count), ingredient.toString());
+                    "\n{2}\n\n", count, InputHandler.GetNumberSuffix(count), ingredient.toString());
                 count++;
             }
 
-            output+=("\n[Steps]\n");
+            output+=("[Steps]\n");
             count = 1;
             foreach (Steps step in stepsList) { 
 
@@ -45,9 +45,7 @@ namespace RecipeApp
                 count++;
             }
 
-            //System.out.println(count+": "+step.toString());
             return output;
-            
         }
     }
 }

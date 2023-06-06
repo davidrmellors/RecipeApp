@@ -28,11 +28,11 @@ namespace RecipeApp
 		public string toString()
 		{
 			/*string output = string.Format("{0} {1} of {2}", IngredientQty, UnitOfMeasure, IngredientName);*/
-            string output = string.Format("ingredient quantity: {0}" +
-                        "\ningredient unit of measurement: {1} " +
-                        "\ningredient name: {2}" +
-                        "\ningredient total calories: {3}" +
-                        "\ningredient food group: {4}", IngredientQty, UnitOfMeasure,
+            string output = string.Format("quantity: {0}" +
+                        "\nunit of measurement: {1} " +
+                        "\nname: {2}" +
+                        "\ntotal calories: {3}" +
+                        "\nfood group: {4}", IngredientQty, UnitOfMeasure,
                         IngredientName, IngredientCalories, IngredientFoodGroup);
             return output;
         }
@@ -45,6 +45,11 @@ namespace RecipeApp
 			//used for Reset method
 			IngredientQtyOriginal = IngredientQty;
 			IngredientQty *= factor;
+		}
+
+		public void ResetRecipe()
+		{
+			IngredientQty = IngredientQtyOriginal;
 		}
 	}
 }
