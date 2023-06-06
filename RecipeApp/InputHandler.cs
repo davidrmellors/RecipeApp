@@ -26,7 +26,9 @@ namespace RecipeApp
             {
                 //Clears the console window to de-clutter console output
                 Console.Clear();
-                Console.WriteLine("----------[Recipe App]----------");
+                Console.WriteLine("-----------------");
+                Console.WriteLine("   Recipe App  ");
+                Console.WriteLine("-----------------");
 
                 //Menu used to display all features of Recipe App
                 Console.WriteLine("Choose an option:");
@@ -86,7 +88,10 @@ namespace RecipeApp
         //class, using objects
         public static void AddRecipe()
         {
-            Console.WriteLine("----------[Recipe]----------");
+            Console.Clear();
+            Console.WriteLine("-----------------");
+            Console.WriteLine("     Recipe  ");
+            Console.WriteLine("-----------------");
 
             string recipeName;
             bool correct = false;
@@ -101,16 +106,21 @@ namespace RecipeApp
                     correct = true;
 
             } while (correct == false);
-            
 
-            
+
+
 
             //Clears the console window to de-clutter console output
             Console.Clear();
-            //Ingredients section
-            Console.WriteLine("      -----ingredients-----");
 
-            //Ask user to enter the number of ingredients for their recipe
+            //Ingredients section
+            Console.WriteLine("----------------------");
+            Console.WriteLine("Ingredients for {0}  ", recipeName);
+            Console.WriteLine("----------------------");
+            
+  
+
+            
 
             //verify user input is an int using ValidateInt() method and then storing
             //the verified value in numOfIngredients varaible
@@ -119,6 +129,7 @@ namespace RecipeApp
             bool isValid = false;
             while (!isValid)
             {
+                //Ask user to enter the number of ingredients for their recipe
                 Console.Write("\nPlease enter the number of ingredients your recipe requires, as an integer: ");
                 try
                 {
@@ -134,7 +145,9 @@ namespace RecipeApp
 
 
             //Create new Array of type Ingredients with the length of numOfIngredients
-            Ingredients[] ingredients = new Ingredients[numOfIngredients];
+            /*Ingredients[] ingredients = new Ingredients[numOfIngredients];*/
+
+            List <Ingredients> ingredientsList = new List<Ingredients>();
 
             //for loop used to instantiate each position of the array with
             //ingredient quantity, ingredient unit of measure and ingredient name
@@ -152,9 +165,12 @@ namespace RecipeApp
                 {
                     //Clears the console window to de-clutter console output
                     Console.Clear();
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine("Ingredients for {0}  ", recipeName);
+                    Console.WriteLine("----------------------");
+
                     //Outputted at first line of the console window to show user what section they are in
-                    Console.WriteLine("      -----ingredients-----");
-                    Console.WriteLine("\nPlease enter the details of your {0}{1} ingredient following " +
+                    Console.WriteLine("Please enter the details of your {0}{1} ingredient following " +
                         "\nthis format: [quantity] [unit of measure] [ingredient name] " +
                         "\nfor example: 1 cup milk", (i + 1), GetNumberSuffix(i + 1));
 
@@ -189,9 +205,9 @@ namespace RecipeApp
 
                     //Clears the console window to de-clutter console output
                     Console.Clear();
-
-                    //Outputted at first line of the console window to show user what section they are in
-                    Console.WriteLine("      -----ingredients-----");
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine("Ingredients for {0}  ", recipeName);
+                    Console.WriteLine("----------------------");
 
                     //Outputs the details of the nth ingredient
                     Console.WriteLine("{0}{1} ingredient: {2} {3} of {4} ", (i + 1), GetNumberSuffix(i + 1), ingredientQty, unitOfMeasure,
@@ -207,12 +223,13 @@ namespace RecipeApp
                 } while(correct == false);
 
                 //add the object of type Ingredients with the user entered details
-                ingredients[i] = new Ingredients(ingredientName, ingredientQty, unitOfMeasure);
+                ingredientsList.Add(new Ingredients(ingredientName, ingredientQty, unitOfMeasure));
             }
             //Clears the console window to de-clutter console output
             Console.Clear();
-            //Steps section
-            Console.WriteLine("      -----steps-----");
+            Console.WriteLine("----------------------");
+            Console.WriteLine("Steps for {0}  ", recipeName);
+            Console.WriteLine("----------------------");
 
             //Ask user to enter number of steps
 
@@ -235,7 +252,8 @@ namespace RecipeApp
             //Validate user input using ValidateInt() method and store in numOfSteps variable
 
             //Create new array of type Steps of size numOfSteps
-            Steps[] steps = new Steps[numOfSteps];
+            /*Steps[] steps = new Steps[numOfSteps];*/
+            List<Steps> stepsList = new List<Steps>();
 
             //Loop used to instantiate each index of the array with a new object of type Steps
             //This object takes the string step variable which holds a new step for the recipe
@@ -248,17 +266,21 @@ namespace RecipeApp
                 {
                     //Clears the console window to de-clutter console output
                     Console.Clear();
-
                     //Outputted at first line of the console window to show user what section they are in
-                    Console.WriteLine("      -----steps-----");
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine("Steps for {0}  ", recipeName);
+                    Console.WriteLine("----------------------");
 
                     Console.Write("Please enter step {0}: ", (i + 1));
                     //User input is required to not be empty using the NotNull() method
                     step = NotNull(Console.ReadLine());
 
+                    //Clears the console window to de-clutter console output
                     Console.Clear();
                     //Outputted at first line of the console window to show user what section they are in
-                    Console.WriteLine("      -----steps-----");
+                    Console.WriteLine("----------------------");
+                    Console.WriteLine("Steps for {0}  ", recipeName);
+                    Console.WriteLine("----------------------");
 
                     Console.WriteLine("Step {0}: {1}", (i + 1), step);
                     Console.Write("\nIs your {0}{1} step accurate?\nType [yes] or [no]: ", (i + 1), GetNumberSuffix(i + 1));
@@ -268,12 +290,12 @@ namespace RecipeApp
 
                 } while (correct == false);
                 
-                steps[i] = new Steps(step);
+                stepsList.Add(new Steps(step));
             }
             //After all ingredients and steps have been entered the ingredients array and
             //steps array are parsed to the Recipes class using the object of the recipe class
             //named recipe
-            Recipe recipe = new Recipe(recipeName, ingredients, steps);
+            Recipe recipe = new Recipe(recipeName, ingredientsList, stepsList);
 
             //the Recipe object recipe is then parsed to the RecipeList class using the object
             //of the RecipeList class named recipeList
@@ -327,7 +349,7 @@ namespace RecipeApp
             }
 
             switch (lastDigit)
-            {
+            { 
                 case 1:
                     return "st";
                 case 2:
@@ -352,6 +374,12 @@ namespace RecipeApp
             Console.WriteLine("Captured value : {0}\n", input);
             return input;
         }
+       /* private static void ClearConsole()
+        {
+            Console.SetCursorPosition(0, 4);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, 4);
+        }*/
     }
 }
 

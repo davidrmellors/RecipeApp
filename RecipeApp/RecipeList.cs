@@ -25,10 +25,13 @@ namespace RecipeApp
             //If recipeList is not empty then display the recipe details
             if (!recipeList.Contains(default(Recipe)))
             {
-                Console.WriteLine("-----Here are your Recipes-----");
+                Console.WriteLine("-----------------");
+                Console.WriteLine("   Reset Recipe  ");
+                Console.WriteLine("-----------------");
 
+                // sort recipeList by recipeName in alphabetical order
+                recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
 
-                recipeList.Sort();
                 //used to indicate the recipe number
                 int recipeNum = 1;
 
@@ -59,7 +62,9 @@ namespace RecipeApp
             //If recipeList is not empty then display the recipe details
             if (!recipeList.Contains(default(Recipe)))
             {
-                Console.WriteLine("      -----Scale Recipe-----");
+                Console.WriteLine("-----------------");
+                Console.WriteLine("  Scale Recipe  ");
+                Console.WriteLine("-----------------");
 
                 Console.WriteLine("\nChoose an option:");
                 Console.WriteLine("1. Scale recipe by 0.5");
@@ -96,7 +101,7 @@ namespace RecipeApp
                     Recipe recipe = (Recipe)recipeList[0];
 
                     //For each ingredient in the recipe call Scale() method to scale the quantity
-                    foreach (Ingredients ingedients in recipe.ingredients)
+                    foreach (Ingredients ingedients in recipe.ingredientsList)
                     {
                         ingedients.Scale(scale);
                     }
@@ -116,7 +121,9 @@ namespace RecipeApp
         {
             //Clears the console window to de-clutter console output
             Console.Clear();
-            Console.WriteLine("      -----Reset Recipe-----");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("   Reset Recipe  ");
+            Console.WriteLine("-----------------");
 
             //If recipeList is not empty then display the recipe details
             if (!recipeList.Contains(default(Recipe)))
@@ -142,7 +149,7 @@ namespace RecipeApp
                     if (input.Equals(1))
                     {
                         Recipe recipe = (Recipe)recipeList[0];
-                        foreach (Ingredients ingredients in recipe.ingredients)
+                        foreach (Ingredients ingredients in recipe.ingredientsList)
                         {
                             ingredients.IngredientQty = ingredients.IngredientQtyOriginal;
                         }
@@ -163,7 +170,9 @@ namespace RecipeApp
         {
             //Clears the console window to de-clutter console output
             Console.Clear();
-            Console.WriteLine("      -----Reset Recipe-----");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("  Clear Recipe  ");
+            Console.WriteLine("-----------------");
 
             if (!recipeList.Contains(default(Recipe)))
             {

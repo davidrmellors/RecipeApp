@@ -10,16 +10,16 @@ namespace RecipeApp
 	public class Recipe
 	{
         public string recipeName;
-		public Ingredients[] ingredients;
-		public Steps[] steps;
+        public List<Ingredients> ingredientsList = new List<Ingredients>();
+        public List<Steps> stepsList = new List<Steps>();
 
         //Ingredients[] and Steps[] taken as parameters in Recipe constructor
         //In order to group both arrays into one recipe object
-		public Recipe(string recipeName, Ingredients[] ingredients, Steps[] steps)
+		public Recipe(string recipeName, List<Ingredients> ingredientsList, List<Steps> stepsList)
 		{
             this.recipeName = recipeName;
-			this.ingredients = ingredients;
-			this.steps = steps;
+			this.ingredientsList = ingredientsList;
+			this.stepsList = stepsList;
 		}
 
         //method used to return recipe details as a string
@@ -31,7 +31,7 @@ namespace RecipeApp
             int count = 1;
             output += "      -----ingredients-----\n";
 
-            foreach (Ingredients ingredient in ingredients)
+            foreach (Ingredients ingredient in ingredientsList)
             {
                 output += string.Format("{0}: {1}\n", count, ingredient.toString());
                 count++;
@@ -39,7 +39,7 @@ namespace RecipeApp
 
             output+=("\n      -----steps-----\n");
             count = 1;
-            foreach (Steps step in steps) { 
+            foreach (Steps step in stepsList) { 
 
                 output += string.Format("{0}: {1}\n", count, step.toString());
                 count++;
