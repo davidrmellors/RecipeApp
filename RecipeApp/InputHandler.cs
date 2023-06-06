@@ -33,7 +33,7 @@ namespace RecipeApp
                 //Menu used to display all features of Recipe App
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. Add new recipe");
-                Console.WriteLine("2. Display recipe");
+                Console.WriteLine("2. List recipes");
                 Console.WriteLine("3. Scale recipe");
                 Console.WriteLine("4. Reset recipe");
                 Console.WriteLine("5. Clear recipe");
@@ -66,7 +66,7 @@ namespace RecipeApp
                         AddRecipe();
                         break;
                     case 2:
-                        RecipeList.PrintRecipe();
+                        RecipeList.ListRecipes();
                         break;
                     case 3:
                         RecipeList.ScaleRecipe();

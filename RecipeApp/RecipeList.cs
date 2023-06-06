@@ -1,7 +1,10 @@
 ﻿// Code Attribution
 // Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
 
+using Microsoft.VisualBasic.FileIO;
 using System;
+using System.Reflection.Metadata.Ecma335;
+
 namespace RecipeApp
 {
 	public class RecipeList
@@ -17,33 +20,58 @@ namespace RecipeApp
             recipeList.Add(recipe);
 		}
 
-        public static void PrintRecipe()
+        public static void ListRecipes()
         {
-            //Clears the console window to de-clutter console output
             Console.Clear();
-
-            //If recipeList is not empty then display the recipe details
-            if (!recipeList.Contains(default(Recipe)))
+            Console.WriteLine("-----------------");
+            Console.WriteLine("     Recipes    ");
+            Console.WriteLine("-----------------\n");
+            if (recipeList.Count > 0) 
             {
-                Console.WriteLine("-----------------");
-                Console.WriteLine("   Reset Recipe  ");
-                Console.WriteLine("-----------------");
-
-                // sort recipeList by recipeName in alphabetical order
-                recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
-
-                //used to indicate the recipe number
-                int recipeNum = 1;
-
-                //for each object of type recipe in the recipeList array, call the recipe.toString() method that returns
-                //all recipe details
                 foreach (Recipe recipe in recipeList)
                 {
-                    Console.WriteLine("\n----------[ {0} ]----------\n", recipe.recipeName, InputHandler.GetNumberSuffix(recipeNum));
-                    Console.WriteLine(recipe.toString());
+                    Console.WriteLine(recipe.recipeName);
                 }
-                Console.WriteLine("---------------------------------------------");
-            }else
+
+                Console.WriteLine("Choose an option:");
+                Console.WriteLine("1. Display a recipe");
+                Console.WriteLine("2. Exit");
+
+                int option = 0;
+                bool isValid = false;
+                while (!isValid)
+                {
+                    Console.Write(">> ");
+                    try
+                    {
+                        option = int.Parse(Console.ReadLine());
+                        isValid = true;
+                    }
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                    }
+                }
+
+                if (option == 1)
+                {
+                    Console.Write("Please enter the name of the recipe" +
+                            "\nyou would like to display >>");
+
+                    string recipeName = Console.ReadLine();
+
+                    foreach (Recipe recipe in recipeList)
+                    {
+                        if (recipeName.Equals(recipe.recipeName))
+                        {
+                            Console.WriteLine(recipe.toString());
+
+                        }
+                        Console.WriteLine("--------------------");
+                    }
+                }
+            }
+            else
             {
                 //if no recipes have been captured output this message to console
                 Console.WriteLine("No Recipes have been captured!");
@@ -51,6 +79,68 @@ namespace RecipeApp
             Console.Write("\nPress and key to continue >> ");
             Console.ReadLine();
         }
+
+        /*public static void PrintRecipe()
+        {
+
+            //Clears the console window to de-clutter console output
+            Console.Clear();
+
+            //If recipeList is not empty then display the recipe details
+            if (recipeList.Count() != 0)
+            {
+                int option = 0;
+
+                while (option!=3)
+                {
+                    Console.WriteLine("-----------------");
+                    Console.WriteLine("     Recipes    ");
+                    Console.WriteLine("-----------------");
+
+                    Console.WriteLine("Choose an option:");
+                    Console.WriteLine("1. Search for recipe");
+                    Console.WriteLine("2. Display all recipes");
+                    Console.WriteLine("3. Exit");
+
+
+                    bool isValid = false;
+                    while (!isValid)
+                    {
+                        Console.Write(">> ");
+                        try
+                        {
+                            option = int.Parse(Console.ReadLine());
+                            isValid = true;
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                        }
+                    }
+
+
+                    // sort recipeList by recipeName in alphabetical order
+                    recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
+
+                    //for each object of type recipe in the recipeList array, call the recipe.toString() method that returns
+                    //all recipe details
+                    foreach (Recipe recipe in recipeList)
+                    {
+
+                        Console.WriteLine("\n[{0}]\n", recipe.recipeName);
+                        Console.WriteLine(recipe.toString());
+                    }
+                    Console.WriteLine("--------------------");
+                }
+            }else
+            {
+                //if no recipes have been captured output this message to console
+                Console.WriteLine("No Recipes have been captured!");
+            }
+            Console.Write("\nPress and key to continue >> ");
+            Console.ReadLine();
+        }*/
+
 
         //Method used to ask user by which value they want to scale their recipe quantity by
         //value then used when caling the Scale method from Ingredients class

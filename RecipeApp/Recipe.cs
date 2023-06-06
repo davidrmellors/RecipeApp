@@ -29,7 +29,7 @@ namespace RecipeApp
             string output = "";
             
             int count = 1;
-            output += "      -----ingredients-----\n";
+            output += "ingredients:\n";
 
             foreach (Ingredients ingredient in ingredientsList)
             {
@@ -37,14 +37,13 @@ namespace RecipeApp
                 count++;
             }
 
-            output+=("\n      -----steps-----\n");
+            output+=("\nsteps:\n");
             count = 1;
             foreach (Steps step in stepsList) { 
 
                 output += string.Format("{0}: {1}\n", count, step.toString());
                 count++;
             }
-            output += "\n";
 
             //System.out.println(count+": "+step.toString());
             return output;
