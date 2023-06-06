@@ -156,9 +156,10 @@ namespace RecipeApp
                 //bool variable used to condition the do while loop
                 correct = false;
                 //strings used to store the name and unitOfMeasure of each ingredient
-                string ingredientName, unitOfMeasure;
+                string ingredientName, unitOfMeasure, ingredientFoodGroup;
                 //dobule used to store the Quantity of each ingredient
                 double ingredientQty;
+                int ingredientCalories = 0;
 
                 //do while that loops until the user is happy with their input
                 do
@@ -167,7 +168,7 @@ namespace RecipeApp
                     Console.Clear();
                     Console.WriteLine("----------------------");
                     Console.WriteLine("Ingredients for {0}  ", recipeName);
-                    Console.WriteLine("----------------------");
+                    Console.WriteLine("----------------------\n");
 
                     //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("Please enter the details of your {0}{1} ingredient following " +
@@ -178,7 +179,7 @@ namespace RecipeApp
                     isValid = false;
                     while (!isValid)
                     {
-                        Console.Write("\nPlease enter the quantity of your ingredient as a number: ");
+                        Console.Write("\nPlease enter the quantity of your ingredient as an integer >> ");
                         try
                         {
                             ingredientQty = double.Parse(Console.ReadLine());
@@ -193,15 +194,37 @@ namespace RecipeApp
                     //validate user input is a double using ValidateDouble() method
                     //and storing it in ingredientQty variable.
 
-                    Console.Write("\nPlease enter the unit of measurement of your ingredient: ");
+                    Console.Write("\nPlease enter the unit of measurement of your ingredient >> ");
                     //validate user input is not empty using NotNull() method
                     //and storing the returned value in unitOfMeasure variable
                     unitOfMeasure = (NotNull(Console.ReadLine()));
 
-                    Console.Write("Please enter the name of your ingredient: ");
+                    Console.Write("\nPlease enter the name of your ingredient >> ");
                     //validate user input is not empty using NotNull() method
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
+
+                    isValid = false;
+                    while (!isValid)
+                    {
+                        Console.Write("\nPlease enter the total number of calories" +
+                            "\nfor your ingredient as an integer >> ");
+                        try
+                        {
+                            ingredientCalories = int.Parse(Console.ReadLine());
+                            isValid = true;
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Invalid input: " + e.Message);
+                        }
+                    }
+
+
+                    Console.Write("\nPlease enter the name of the food group" +
+                        "\nthis ingredient belongs to >> ");
+                    ingredientFoodGroup = (NotNull(Console.ReadLine()));
+
 
                     //Clears the console window to de-clutter console output
                     Console.Clear();
@@ -210,11 +233,17 @@ namespace RecipeApp
                     Console.WriteLine("----------------------");
 
                     //Outputs the details of the nth ingredient
-                    Console.WriteLine("{0}{1} ingredient: {2} {3} of {4} ", (i + 1), GetNumberSuffix(i + 1), ingredientQty, unitOfMeasure,
-                        ingredientName);
+                    Console.WriteLine("\n[{0}{1} Ingredient]" +
+                        "\ningredient quantity: {2}" +
+                        "\ningredient unit of measurement: {3} " +
+                        "\ningredient name: {4}" +
+                        "\ningredient total calories: {5}" +
+                        "\ningredient food group: {6}", (i + 1), GetNumberSuffix(i + 1), ingredientQty, unitOfMeasure,
+                        ingredientName, ingredientCalories, ingredientFoodGroup);
 
                     //Asks user if the ingredient details they entered for the nth ingredient is accurate
-                    Console.Write("\nIs your {0}{1} ingredient accurate?\nType [yes] or [no] >> ", (i + 1), GetNumberSuffix(i + 1));
+                    Console.Write("\nAre your {0}{1} ingredient details accurate?" +
+                        "\nType [yes] or [no] >> ", (i + 1), GetNumberSuffix(i + 1));
 
                     //if the user types yes the loop will break
                     if (Console.ReadLine().Equals("yes"))
@@ -223,12 +252,12 @@ namespace RecipeApp
                 } while(correct == false);
 
                 //add the object of type Ingredients with the user entered details
-                ingredientsList.Add(new Ingredients(ingredientName, ingredientQty, unitOfMeasure));
+                ingredientsList.Add(new Ingredients(ingredientName, ingredientQty, unitOfMeasure, ingredientCalories, ingredientFoodGroup));
             }
             //Clears the console window to de-clutter console output
             Console.Clear();
             Console.WriteLine("----------------------");
-            Console.WriteLine("Steps for {0}  ", recipeName);
+            Console.WriteLine("  Steps for {0}  ", recipeName);
             Console.WriteLine("----------------------");
 
             //Ask user to enter number of steps
@@ -269,7 +298,7 @@ namespace RecipeApp
                     //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("----------------------");
                     Console.WriteLine("Steps for {0}  ", recipeName);
-                    Console.WriteLine("----------------------");
+                    Console.WriteLine("----------------------\n");
 
                     Console.Write("Please enter step {0}: ", (i + 1));
                     //User input is required to not be empty using the NotNull() method
@@ -280,7 +309,7 @@ namespace RecipeApp
                     //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("----------------------");
                     Console.WriteLine("Steps for {0}  ", recipeName);
-                    Console.WriteLine("----------------------");
+                    Console.WriteLine("----------------------\n");
 
                     Console.WriteLine("Step {0}: {1}", (i + 1), step);
                     Console.Write("\nIs your {0}{1} step accurate?\nType [yes] or [no]: ", (i + 1), GetNumberSuffix(i + 1));

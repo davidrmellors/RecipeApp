@@ -26,15 +26,19 @@ namespace RecipeApp
             Console.WriteLine("-----------------");
             Console.WriteLine("     Recipes    ");
             Console.WriteLine("-----------------\n");
+
             if (recipeList.Count > 0) 
             {
+                // sort recipeList by recipeName in alphabetical order
+                recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
+
                 foreach (Recipe recipe in recipeList)
                 {
-                    Console.WriteLine(recipe.recipeName);
+                    Console.WriteLine("* " + recipe.recipeName);
                 }
-
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine("1. Display a recipe");
+                Console.WriteLine("---------------");
+                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("1. Display a recipe's details");
                 Console.WriteLine("2. Exit");
 
                 int option = 0;
@@ -52,11 +56,13 @@ namespace RecipeApp
                         Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
                     }
                 }
+                
 
                 if (option == 1)
                 {
-                    Console.Write("Please enter the name of the recipe" +
-                            "\nyou would like to display >>");
+
+                    Console.Write("\nPlease enter the name of the recipe" +
+                            "\nyou would like to display >> ");
 
                     string recipeName = Console.ReadLine();
 
@@ -64,12 +70,16 @@ namespace RecipeApp
                     {
                         if (recipeName.Equals(recipe.recipeName))
                         {
+                            Console.Clear();
+                            Console.WriteLine("-----------------");
+                            Console.WriteLine("     {0}    ", recipeName);
+                            Console.WriteLine("-----------------\n");
                             Console.WriteLine(recipe.toString());
-
                         }
                         Console.WriteLine("--------------------");
                     }
                 }
+
             }
             else
             {
@@ -80,67 +90,6 @@ namespace RecipeApp
             Console.ReadLine();
         }
 
-        /*public static void PrintRecipe()
-        {
-
-            //Clears the console window to de-clutter console output
-            Console.Clear();
-
-            //If recipeList is not empty then display the recipe details
-            if (recipeList.Count() != 0)
-            {
-                int option = 0;
-
-                while (option!=3)
-                {
-                    Console.WriteLine("-----------------");
-                    Console.WriteLine("     Recipes    ");
-                    Console.WriteLine("-----------------");
-
-                    Console.WriteLine("Choose an option:");
-                    Console.WriteLine("1. Search for recipe");
-                    Console.WriteLine("2. Display all recipes");
-                    Console.WriteLine("3. Exit");
-
-
-                    bool isValid = false;
-                    while (!isValid)
-                    {
-                        Console.Write(">> ");
-                        try
-                        {
-                            option = int.Parse(Console.ReadLine());
-                            isValid = true;
-                        }
-                        catch (FormatException e)
-                        {
-                            Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
-                        }
-                    }
-
-
-                    // sort recipeList by recipeName in alphabetical order
-                    recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
-
-                    //for each object of type recipe in the recipeList array, call the recipe.toString() method that returns
-                    //all recipe details
-                    foreach (Recipe recipe in recipeList)
-                    {
-
-                        Console.WriteLine("\n[{0}]\n", recipe.recipeName);
-                        Console.WriteLine(recipe.toString());
-                    }
-                    Console.WriteLine("--------------------");
-                }
-            }else
-            {
-                //if no recipes have been captured output this message to console
-                Console.WriteLine("No Recipes have been captured!");
-            }
-            Console.Write("\nPress and key to continue >> ");
-            Console.ReadLine();
-        }*/
-
 
         //Method used to ask user by which value they want to scale their recipe quantity by
         //value then used when caling the Scale method from Ingredients class
@@ -148,31 +97,45 @@ namespace RecipeApp
         {
             //Clears the console window to de-clutter console output
             Console.Clear();
+            Console.WriteLine("-----------------");
+            Console.WriteLine("  Scale Recipe  ");
+            Console.WriteLine("-----------------\n");
 
             //If recipeList is not empty then display the recipe details
-            if (!recipeList.Contains(default(Recipe)))
+            if (recipeList.Count > 0)
             {
-                Console.WriteLine("-----------------");
-                Console.WriteLine("  Scale Recipe  ");
-                Console.WriteLine("-----------------");
-
-                Console.WriteLine("\nChoose an option:");
+                Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. Scale recipe by 0.5");
                 Console.WriteLine("2. Scale recipe by 2");
                 Console.WriteLine("3. Scale recipe by 3");
                 Console.WriteLine("4. Exit");
-                Console.Write(">> ");
+
+                int option = 0;
+                bool isValid = false;
+                while (!isValid)
+                {
+                    Console.Write(">> ");
+                    try
+                    {
+                        option = int.Parse(Console.ReadLine());
+                        isValid = true;
+                    }
+                    catch (FormatException e)
+                    {
+                        Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                    }
+                }
 
                 int input = InputHandler.ValidateInt(Console.ReadLine());
                 double scale = 1;
 
                 //Requires user to enter a valid menu option
-                while(input > 3 || input < 1){
+                while(option > 4 || option < 1){
                     Console.Write("Menu option does not exist\nPlease try again >> ");
                     input = InputHandler.ValidateInt(Console.ReadLine());
                 }
 
-                if (input != 4)
+                if (option != 4)
                 {
                     switch (input)
                     {
@@ -184,6 +147,8 @@ namespace RecipeApp
                             break;
                         case 3:
                             scale = 3;
+                            break;
+                        default:
                             break;
                     }
 

@@ -29,15 +29,15 @@ namespace RecipeApp
             string output = "";
             
             int count = 1;
-            output += "ingredients:\n";
 
             foreach (Ingredients ingredient in ingredientsList)
             {
-                output += string.Format("{0}: {1}\n", count, ingredient.toString());
+                output += string.Format("[{0}{1} Ingredient]" +
+                    "\n\n{2}\n", count, InputHandler.GetNumberSuffix(count), ingredient.toString());
                 count++;
             }
 
-            output+=("\nsteps:\n");
+            output+=("\n[Steps]\n");
             count = 1;
             foreach (Steps step in stepsList) { 
 

@@ -10,20 +10,31 @@ namespace RecipeApp
 		public string UnitOfMeasure { get; set; }
 		public double IngredientQty { get; set; }
 		public double IngredientQtyOriginal;
+		public int IngredientCalories {  get; set; }
+		public string IngredientFoodGroup { get; set; }
 
 		//Ingredient details taken as parameters in constructor and stored locally.
-		public Ingredients(string ingredientName, double ingredientQty, string unitOfMeasure)
+		public Ingredients(string ingredientName, double ingredientQty, string unitOfMeasure, 
+			int ingredientCalories, string ingredientFoodGroup)
 		{
 			IngredientName = ingredientName;
 			UnitOfMeasure = unitOfMeasure;
 			IngredientQty = ingredientQty;
+			IngredientCalories = ingredientCalories;
+			IngredientFoodGroup = ingredientFoodGroup;
 		}
 
 		//method used to return ingredient details as string
 		public string toString()
 		{
-			string output = string.Format("{0} {1} of {2}", IngredientQty, UnitOfMeasure, IngredientName);
-			return output;
+			/*string output = string.Format("{0} {1} of {2}", IngredientQty, UnitOfMeasure, IngredientName);*/
+            string output = string.Format("ingredient quantity: {0}" +
+                        "\ningredient unit of measurement: {1} " +
+                        "\ningredient name: {2}" +
+                        "\ningredient total calories: {3}" +
+                        "\ningredient food group: {4}", IngredientQty, UnitOfMeasure,
+                        IngredientName, IngredientCalories, IngredientFoodGroup);
+            return output;
         }
 
 		//method that takes scale value as parameter and multiplies local
