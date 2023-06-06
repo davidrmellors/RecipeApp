@@ -104,6 +104,7 @@ namespace RecipeApp
                         if (recipe.recipeName.Equals(input))
                         {
                             Console.WriteLine("Recipe Found!\n");
+
                             Console.WriteLine("Choose an option:");
                             Console.WriteLine("1. Scale recipe by 0.5");
                             Console.WriteLine("2. Scale recipe by 2");
@@ -150,21 +151,21 @@ namespace RecipeApp
                                 {
                                     ingredient.Scale(scale);
                                 }
+                                Console.WriteLine("Scaling Complete.");
                             }
 
                         }
                     }
                 }
-                else
-                {
-                    //if no recipes have been captured output this message to console
-                    Console.WriteLine("No Recipes have been captured!");
-                }
-                Console.Write("\nPress and key to continue >> ");
-                Console.ReadLine();
+                
             }
-
-
+            else
+            {
+                //if no recipes have been captured output this message to console
+                Console.WriteLine("No Recipes have been captured!");
+            }
+            Console.Write("\nPress and key to continue >> ");
+            Console.ReadLine();
         }
 
         //Takes original quantities of ingredients and replaces the new quantity
@@ -177,7 +178,7 @@ namespace RecipeApp
             Console.WriteLine("-----------------\n");
 
             //If recipeList is not empty then display the recipe details
-            if (recipeList.Count()>0)
+            if(recipeList.Count() > 0)
             {
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. Reset quantities to original values");
@@ -206,19 +207,20 @@ namespace RecipeApp
                                 {
                                     ingredients.ResetRecipe();
                                 }
-                                Console.WriteLine("Recipe successfully removed.");
+                                Console.WriteLine("Recipe successfully reset.");
                             }
                         }
                     }
                 }
-                else
-                {
-                    //if no recipes have been captured output this message to console
-                    Console.WriteLine("No Recipes have been captured!");
-                }
-                Console.Write("\nPress and key to continue >> ");
-                Console.ReadLine();
+                
             }
+            else
+            {
+                //if no recipes have been captured output this message to console
+                Console.WriteLine("No Recipes have been captured!");
+            }
+            Console.Write("\nPress and key to continue >> ");
+            Console.ReadLine();
         }
 
         //Method used to empty the recipeList array
@@ -227,7 +229,7 @@ namespace RecipeApp
             //Clears the console window to de-clutter console output
             Console.Clear();
             Console.WriteLine("-----------------");
-            Console.WriteLine("  Clear Recipe  ");
+            Console.WriteLine("Clear All Recipes  ");
             Console.WriteLine("-----------------\n");
 
             if (recipeList.Count() > 0)
@@ -251,6 +253,7 @@ namespace RecipeApp
                     if (confirm.Equals("yes"))
                     {
                         recipeList.Clear();
+                        Console.WriteLine("All recipe data has been cleared.");
                     }
                 }
             }

@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using Microsoft.VisualBasic.FileIO;
 
 namespace RecipeApp
@@ -15,8 +16,20 @@ namespace RecipeApp
 		{
 		}
 
+        delegate void CaloriesChecker(int totalCalories);
+
+        //define the method to output warning message when total calories exceed 300
+        static void WarnExceedCalories(int totalCalories)
+        {
+            if (totalCalories > 300)
+            {
+                Console.WriteLine("\nThe total calories of this recipe exceeds 300!");
+            }
+        }
+
+
         //Method used to request user input and gather required recipe data
-		public void UserInput()
+        public void UserInput()
 		{
             //integer variable used to condition while loop
             //loop will break only when the user enters the number 6
@@ -39,14 +52,13 @@ namespace RecipeApp
                 Console.WriteLine("5. Clear recipe");
                 Console.WriteLine("6. Exit");
 
-
                 //Store user's input in option to analyze which menu option they
                 //choose
                 int input = InputHandler.ValidateInt();
                 //switch statement which calls the relevent method responsible
                 //for the funtionality of the menu option the user chooses
 
-                switch (input)
+                switch(input)
                 {
                     case 1:
                         AddRecipe();
@@ -62,6 +74,9 @@ namespace RecipeApp
                         break;
                     case 5:
                         RecipeList.ClearRecipe();
+                        break;
+                    case 6:
+                        option = 6;
                         break;
                     default:
                         break;
@@ -131,6 +146,11 @@ namespace RecipeApp
 
             List <Ingredients> ingredientsList = new List<Ingredients>();
 
+            int totalCalories = 0;
+
+            //instantiate the delegate with the defined method
+            CaloriesChecker caloriesChecker = WarnExceedCalories;
+
             //for loop used to instantiate each position of the array with
             //ingredient quantity, ingredient unit of measure and ingredient name
             for (int i = 0; i < numOfIngredients; i++)
@@ -195,6 +215,9 @@ namespace RecipeApp
                         {
                             ingredientCalories = int.Parse(Console.ReadLine());
                             isValid = true;
+                            // Keep track of total calories
+                            totalCalories += ingredientCalories;
+                            caloriesChecker(totalCalories); // invoke delegate to check if calories exceed 300 and output warning message if necessary
                         }
                         catch (FormatException e)
                         {

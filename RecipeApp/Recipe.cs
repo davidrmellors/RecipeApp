@@ -22,6 +22,17 @@ namespace RecipeApp
 			this.stepsList = stepsList;
 		}
 
+        public double RecipeCalories()
+        {
+            double totalCalories = 0;
+            foreach(Ingredients ingredients in ingredientsList)
+            {
+                totalCalories += ingredients.IngredientCalories;
+            }
+
+            return totalCalories;
+        }
+
         //method used to return recipe details as a string
 		public string toString()
 		{
@@ -30,9 +41,11 @@ namespace RecipeApp
             
             int count = 1;
 
+            output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories());
+
             foreach (Ingredients ingredient in ingredientsList)
             {
-                output += string.Format("[{0}{1} Ingredient]" +
+                output += string.Format("\n[{0}{1} Ingredient]" +
                     "\n{2}\n\n", count, InputHandler.GetNumberSuffix(count), ingredient.toString());
                 count++;
             }

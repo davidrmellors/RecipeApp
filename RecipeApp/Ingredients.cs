@@ -10,8 +10,10 @@ namespace RecipeApp
 		public string UnitOfMeasure { get; set; }
 		public double IngredientQty { get; set; }
 		public double IngredientQtyOriginal;
-		public int IngredientCalories {  get; set; }
-		public string IngredientFoodGroup { get; set; }
+		public double IngredientCalories {  get; set; }
+        public double IngredientCaloriesOriginal;
+        public string IngredientFoodGroup { get; set; }
+		
 
 		//Ingredient details taken as parameters in constructor and stored locally.
 		public Ingredients(string ingredientName, double ingredientQty, string unitOfMeasure, 
@@ -44,12 +46,16 @@ namespace RecipeApp
 			//original ingredient quantity stored in IngredientQtyOriginal variable
 			//used for Reset method
 			IngredientQtyOriginal = IngredientQty;
+			IngredientCaloriesOriginal = IngredientCalories;
 			IngredientQty *= factor;
+			IngredientCalories *= factor;
+			
 		}
 
 		public void ResetRecipe()
 		{
 			IngredientQty = IngredientQtyOriginal;
+			IngredientCalories = IngredientCaloriesOriginal;
 		}
 	}
 }
