@@ -3,29 +3,30 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace RecipeApp
 {
     //Class for storing all recipe details
-	public class Recipe
-	{
+    public class Recipe
+    {
         public string recipeName;
         public List<Ingredients> ingredientsList = new List<Ingredients>();
         public List<Steps> stepsList = new List<Steps>();
 
         //Ingredients[] and Steps[] taken as parameters in Recipe constructor
         //In order to group both arrays into one recipe object
-		public Recipe(string recipeName, List<Ingredients> ingredientsList, List<Steps> stepsList)
-		{
+        public Recipe(string recipeName, List<Ingredients> ingredientsList, List<Steps> stepsList)
+        {
             this.recipeName = recipeName;
-			this.ingredientsList = ingredientsList;
-			this.stepsList = stepsList;
-		}
+            this.ingredientsList = ingredientsList;
+            this.stepsList = stepsList;
+        }
 
         public double RecipeCalories()
         {
             double totalCalories = 0;
-            foreach(Ingredients ingredients in ingredientsList)
+            foreach (Ingredients ingredients in ingredientsList)
             {
                 totalCalories += ingredients.IngredientCalories;
             }
@@ -34,11 +35,11 @@ namespace RecipeApp
         }
 
         //method used to return recipe details as a string
-		public string toString()
-		{
+        public string toString()
+        {
             int recipeNum = 1;
             string output = "";
-            
+
             int count = 1;
 
             output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories());
@@ -52,7 +53,8 @@ namespace RecipeApp
 
             output+=("[Steps]\n");
             count = 1;
-            foreach (Steps step in stepsList) { 
+            foreach (Steps step in stepsList)
+            {
 
                 output += string.Format("{0}: {1}\n", count, step.toString());
                 count++;
@@ -62,4 +64,3 @@ namespace RecipeApp
         }
     }
 }
-

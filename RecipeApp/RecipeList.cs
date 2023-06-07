@@ -3,6 +3,7 @@
 
 using Microsoft.VisualBasic.FileIO;
 using System;
+using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 
 namespace RecipeApp
@@ -57,7 +58,7 @@ namespace RecipeApp
                             Console.WriteLine("-----------------");
                             Console.WriteLine("     {0}    ", recipeName);
                             Console.WriteLine("-----------------\n");
-                            Console.WriteLine(recipe.toString()); 
+                            Console.WriteLine(recipe.toString());
                         }
                     }
                     Console.WriteLine("--------------------");
@@ -118,7 +119,7 @@ namespace RecipeApp
                                 try
                                 {
                                     option = int.Parse(Console.ReadLine());
-                                    if(option > 0 && option < 5)
+                                    if (option > 0 && option < 5)
                                     {
                                         isValid = true;
                                     }
@@ -168,7 +169,7 @@ namespace RecipeApp
                         }
                     }
                 }
-                
+
             }
             else
             {
@@ -191,7 +192,7 @@ namespace RecipeApp
             Console.WriteLine("-----------------\n");
 
             //If recipeList is not empty then display the recipe details
-            if(recipeList.Count() > 0)
+            if (recipeList.Count() > 0)
             {
                 Console.WriteLine("Choose an option:");
                 Console.WriteLine("1. Reset quantities to original values");
@@ -225,7 +226,7 @@ namespace RecipeApp
                         }
                     }
                 }
-                
+
             }
             else
             {
@@ -284,4 +285,3 @@ namespace RecipeApp
         }
     }
 }
-

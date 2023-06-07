@@ -1,0 +1,3 @@
+C:\Users\David\source\repos\RecipeApp\RecipeApp\obj\Debug\RecipeApp.csproj.AssemblyReference.cache
+C:\Users\David\source\repos\RecipeApp\RecipeApp\obj\Debug\RecipeApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\David\source\repos\RecipeApp\RecipeApp\obj\Debug\RecipeApp.csproj.CoreCompileInputs.cache

@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using Microsoft.VisualBasic.FileIO;
@@ -11,11 +12,11 @@ using static System.Formats.Asn1.AsnWriter;
 namespace RecipeApp
 {
     //Class used to handle all user input
-	public class InputHandler
-	{
+    public class InputHandler
+    {
         public InputHandler()
-		{
-		}
+        {
+        }
 
         delegate void CaloriesChecker(int totalCalories);
 
@@ -31,7 +32,7 @@ namespace RecipeApp
 
         //Method used to request user input and gather required recipe data
         public void UserInput()
-		{
+        {
             //integer variable used to condition while loop
             //loop will break only when the user enters the number 6
             int option = 0;
@@ -58,13 +59,13 @@ namespace RecipeApp
 
                 int input = 0;
                 bool isValid = false;
-                while(!isValid)
+                while (!isValid)
                 {
                     Console.Write(">> ");
                     try
                     {
                         input = int.Parse(Console.ReadLine());
-                        if(input > 0 && input < 7)
+                        if (input > 0 && input < 7)
                         {
                             isValid = true;
                         }
@@ -112,8 +113,8 @@ namespace RecipeApp
                     default:
                         break;
                 }
-            } 
-		}
+            }
+        }
 
         //Method used to instantiate relevent ingredient and step details
         //by using user input and then storing the details in their relevent
@@ -149,7 +150,7 @@ namespace RecipeApp
             Console.WriteLine("----------------------");
             Console.WriteLine("Ingredients for {0}  ", recipeName);
             Console.WriteLine("----------------------");
-            
+
             //verify user input is an int using ValidateInt() method and then storing
             //the verified value in numOfIngredients varaible
 
@@ -169,7 +170,7 @@ namespace RecipeApp
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input: " + e.Message);
                     Console.ResetColor();
-                    
+
                 }
             }
 
@@ -178,7 +179,7 @@ namespace RecipeApp
             //Create new Array of type Ingredients with the length of numOfIngredients
             /*Ingredients[] ingredients = new Ingredients[numOfIngredients];*/
 
-            List <Ingredients> ingredientsList = new List<Ingredients>();
+            List<Ingredients> ingredientsList = new List<Ingredients>();
 
             //int used to keep track of totalCalories
             int totalCalories = 0;
@@ -229,7 +230,7 @@ namespace RecipeApp
                             Console.ResetColor();
                         }
                     }
-                    
+
                     //validate user input is a double using ValidateDouble() method
                     //and storing it in ingredientQty variable.
 
@@ -242,7 +243,7 @@ namespace RecipeApp
                     //validate user input is not empty using NotNull() method
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
-                 
+
                     isValid = false;
                     while (!isValid)
                     {
@@ -293,7 +294,7 @@ namespace RecipeApp
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Invalid input." +
                                 "\nThe menu option you entered does not exist.");
-                                Console.ResetColor ();
+                                Console.ResetColor();
                             }
                         }
                         catch (FormatException e)
@@ -305,7 +306,7 @@ namespace RecipeApp
                         }
                     }
 
-                    switch(option)
+                    switch (option)
                     {
                         case 1:
                             ingredientFoodGroup = "Starchy foods";
@@ -356,7 +357,7 @@ namespace RecipeApp
                     if (Console.ReadLine().Equals("yes"))
                         correct = true;
 
-                } while(correct == false);
+                } while (correct == false);
 
                 //add the object of type Ingredients with the user entered details
                 ingredientsList.Add(new Ingredients(ingredientName, ingredientQty, unitOfMeasure, ingredientCalories, ingredientFoodGroup));
@@ -386,7 +387,7 @@ namespace RecipeApp
                     Console.ResetColor();
                 }
             }
-            
+
             //Validate user input using ValidateInt() method and store in numOfSteps variable
 
             //Create new array of type Steps of size numOfSteps
@@ -427,7 +428,7 @@ namespace RecipeApp
                         correct = true;
 
                 } while (correct == false);
-                
+
                 stepsList.Add(new Steps(step));
             }
             //After all ingredients and steps have been entered the ingredients array and
@@ -445,7 +446,7 @@ namespace RecipeApp
         //the user is then asked to re-enter an int until the conversion is
         //successful. The user entered int is then returned
         public static int ValidateInt()
-		{
+        {
             int num = 0;
             bool isValid = false;
             while (!isValid)
@@ -499,7 +500,7 @@ namespace RecipeApp
             }
 
             switch (lastDigit)
-            { 
+            {
                 case 1:
                     return "st";
                 case 2:
@@ -528,4 +529,3 @@ namespace RecipeApp
         }
     }
 }
-
