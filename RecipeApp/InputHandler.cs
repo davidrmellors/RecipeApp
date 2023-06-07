@@ -70,14 +70,20 @@ namespace RecipeApp
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Invalid input." +
+
                             "\nThe menu option you entered does not exist.");
+                            Console.ResetColor();
                         }
+
                     }
-                    catch(FormatException e)
+                    catch (FormatException e)
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid input." +
                             "\nPlease enter the integer associated with your option of choice.");
+                        Console.ResetColor();
                     }
                 }
                 //switch statement which calls the relevent method responsible
@@ -160,7 +166,10 @@ namespace RecipeApp
                 }
                 catch (FormatException e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input: " + e.Message);
+                    Console.ResetColor();
+                    
                 }
             }
 
@@ -171,6 +180,7 @@ namespace RecipeApp
 
             List <Ingredients> ingredientsList = new List<Ingredients>();
 
+            //int used to keep track of totalCalories
             int totalCalories = 0;
 
             //instantiate the delegate with the defined method
@@ -183,7 +193,7 @@ namespace RecipeApp
                 //bool variable used to condition the do while loop
                 correct = false;
                 //strings used to store the name and unitOfMeasure of each ingredient
-                string ingredientName, unitOfMeasure, ingredientFoodGroup;
+                string ingredientName, unitOfMeasure, ingredientFoodGroup = "";
                 //dobule used to store the Quantity of each ingredient
                 double ingredientQty;
                 int ingredientCalories = 0;
@@ -214,7 +224,9 @@ namespace RecipeApp
                         }
                         catch (FormatException e)
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Invalid input: " + e.Message);
+                            Console.ResetColor();
                         }
                     }
                     
@@ -246,7 +258,9 @@ namespace RecipeApp
                         }
                         catch (FormatException e)
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Invalid input: " + e.Message);
+                            Console.ResetColor();
                         }
                     }
 
@@ -276,14 +290,18 @@ namespace RecipeApp
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Invalid input." +
                                 "\nThe menu option you entered does not exist.");
+                                Console.ResetColor ();
                             }
                         }
                         catch (FormatException e)
                         {
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Invalid input." +
                                 "\nPlease enter the integer associated with your option of choice.");
+                            Console.ResetColor();
                         }
                     }
 
@@ -363,7 +381,9 @@ namespace RecipeApp
                 }
                 catch (FormatException e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input: " + e.Message);
+                    Console.ResetColor();
                 }
             }
             
@@ -438,7 +458,9 @@ namespace RecipeApp
                 }
                 catch (FormatException e)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
+                    Console.ResetColor();
                 }
             }
             return num;
@@ -453,7 +475,9 @@ namespace RecipeApp
             double c;
             while (double.TryParse(num, out c) == false)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Please enter a value of type double: ");
+                Console.ResetColor();
                 num = Console.ReadLine();
             }
             Console.WriteLine("Captured value: {0}\n", c);
@@ -494,18 +518,14 @@ namespace RecipeApp
         {
             while (string.IsNullOrEmpty(input))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("Please enter a string: ");
+                Console.ResetColor();
                 input = Console.ReadLine();
             }
             Console.WriteLine("Captured value : {0}\n", input);
             return input;
         }
-       /* private static void ClearConsole()
-        {
-            Console.SetCursorPosition(0, 4);
-            Console.Write(new string(' ', Console.WindowWidth));
-            Console.SetCursorPosition(0, 4);
-        }*/
     }
 }
 

@@ -11,9 +11,6 @@ namespace RecipeApp
     {
         static List<Recipe> recipeList = new List<Recipe>();
 
-
-        //Array of type Recipe used to store 
-        //static Recipe[] recipeList = new Recipe[1];
         //Constructor takes object of Recipe class and stores in recipeList array
         public RecipeList(Recipe recipe)
         {
@@ -70,7 +67,9 @@ namespace RecipeApp
             else
             {
                 //if no recipes have been captured output this message to console
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Recipes have been captured!");
+                Console.ResetColor();
             }
             Console.Write("\nPress any key to continue >> ");
             Console.ReadLine();
@@ -125,14 +124,18 @@ namespace RecipeApp
                                     }
                                     else
                                     {
+                                        Console.ForegroundColor = ConsoleColor.Red;
                                         Console.WriteLine("Invalid input." +
                                         "\nThe menu option you entered does not exist.");
+                                        Console.ResetColor();
                                     }
                                 }
                                 catch (FormatException e)
                                 {
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Invalid input." +
                                         "\nPlease enter the integer associated with your option of choice.");
+                                    Console.ResetColor();
                                 }
                             }
 
@@ -170,7 +173,9 @@ namespace RecipeApp
             else
             {
                 //if no recipes have been captured output this message to console
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Recipes have been captured!");
+                Console.ResetColor();
             }
             Console.Write("\nPress and key to continue >> ");
             Console.ReadLine();
@@ -225,7 +230,9 @@ namespace RecipeApp
             else
             {
                 //if no recipes have been captured output this message to console
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Recipes have been captured!");
+                Console.ResetColor();
             }
             Console.Write("\nPress and key to continue >> ");
             Console.ReadLine();
@@ -268,7 +275,9 @@ namespace RecipeApp
             else
             {
                 //if no recipes have been captured output this message to console
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Recipes have been captured!");
+                Console.ResetColor();
             }
             Console.Write("\nPress and key to continue >> ");
             Console.ReadLine();
