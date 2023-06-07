@@ -44,6 +44,14 @@ namespace RecipeApp
 
             output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories());
 
+            double dailyIntakePercent;
+
+            dailyIntakePercent = (RecipeCalories() / 2000) * 100;
+
+            output += string.Format("This is {0}% of your daily recommended caloric intake\n", dailyIntakePercent);
+
+            RecipeCalories();
+
             foreach (Ingredients ingredient in ingredientsList)
             {
                 output += string.Format("\n[{0}{1} Ingredient]" +

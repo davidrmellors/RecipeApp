@@ -1,10 +1,8 @@
 ﻿// Code Attribution
 // Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
-
-using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
+using System.Linq;
 
 namespace RecipeApp
 {
@@ -87,88 +85,98 @@ namespace RecipeApp
             Console.WriteLine("  Scale Recipe  ");
             Console.WriteLine("-----------------\n");
 
+            Console.WriteLine("[List of Recipes]\n");  
+  
             //If recipeList is not empty then display the recipe details
             if (recipeList.Count > 0)
             {
+                // sort recipeList by recipeName in alphabetical order
+                recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
 
-                Console.Write("Please enter the name of the " +
-                                "\nrecipe you would like to scale " +
-                                "\nor type [1] to exit >> ");
-
-                string input = InputHandler.NotNull(Console.ReadLine());
-
-                if (!input.Equals("1"))
+                //List all recipes
+                foreach (Recipe recipe in recipeList)
                 {
-                    foreach (Recipe recipe in recipeList)
+                    Console.WriteLine("* " + recipe.recipeName);
+                }
+
+                Console.Write("\nPlease enter the name of the " +
+                            "\nrecipe you would like to scale " +
+                            "\nor type [1] to exit >> ");
+
+            string input = InputHandler.NotNull(Console.ReadLine());
+
+            if (!input.Equals("1"))
+            {
+                foreach (Recipe recipe in recipeList)
+                {
+                    if (recipe.recipeName.Equals(input))
                     {
-                        if (recipe.recipeName.Equals(input))
+                        Console.WriteLine("Recipe Found!\n");
+
+                        Console.WriteLine("Choose an option:");
+                        Console.WriteLine("1. Scale recipe by 0.5");
+                        Console.WriteLine("2. Scale recipe by 2");
+                        Console.WriteLine("3. Scale recipe by 3");
+                        Console.WriteLine("4. Exit");
+
+                        int option = 0;
+                        bool isValid = false;
+                        while (!isValid)
                         {
-                            Console.WriteLine("Recipe Found!\n");
-
-                            Console.WriteLine("Choose an option:");
-                            Console.WriteLine("1. Scale recipe by 0.5");
-                            Console.WriteLine("2. Scale recipe by 2");
-                            Console.WriteLine("3. Scale recipe by 3");
-                            Console.WriteLine("4. Exit");
-
-                            int option = 0;
-                            bool isValid = false;
-                            while (!isValid)
+                            Console.Write(">> ");
+                            try
                             {
-                                Console.Write(">> ");
-                                try
+                                option = int.Parse(Console.ReadLine());
+                                if (option > 0 && option < 5)
                                 {
-                                    option = int.Parse(Console.ReadLine());
-                                    if (option > 0 && option < 5)
-                                    {
-                                        isValid = true;
-                                    }
-                                    else
-                                    {
-                                        Console.ForegroundColor = ConsoleColor.Red;
-                                        Console.WriteLine("Invalid input." +
-                                        "\nThe menu option you entered does not exist.");
-                                        Console.ResetColor();
-                                    }
+                                    isValid = true;
                                 }
-                                catch (FormatException e)
+                                else
                                 {
                                     Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine("Invalid input." +
-                                        "\nPlease enter the integer associated with your option of choice.");
+                                    "\nThe menu option you entered does not exist.");
                                     Console.ResetColor();
                                 }
                             }
-
-                            double scale = 1;
-
-                            if (option != 4)
+                            catch (FormatException e)
                             {
-                                switch (option)
-                                {
-                                    case 1:
-                                        scale = 0.5;
-                                        break;
-                                    case 2:
-                                        scale = 2;
-                                        break;
-                                    case 3:
-                                        scale = 3;
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Invalid input." +
+                                    "\nPlease enter the integer associated with your option of choice.");
+                                Console.ResetColor();
+                            }
+                        }
 
-                                foreach (Ingredients ingredient in recipe.ingredientsList)
-                                {
-                                    ingredient.Scale(scale);
-                                }
-                                Console.WriteLine("Scaling Complete.");
+                        double scale = 1;
+
+                        if (option != 4)
+                        {
+                            switch (option)
+                            {
+                                case 1:
+                                    scale = 0.5;
+                                    break;
+                                case 2:
+                                    scale = 2;
+                                    break;
+                                case 3:
+                                    scale = 3;
+                                    break;
+                                default:
+                                    break;
                             }
 
+                            foreach (Ingredients ingredient in recipe.ingredientsList)
+                            {
+                                ingredient.Scale(scale);
+                            }
+                            Console.WriteLine("Scaling Complete.");
                         }
+
                     }
                 }
+            }
 
             }
             else
@@ -178,7 +186,7 @@ namespace RecipeApp
                 Console.WriteLine("No Recipes have been captured!");
                 Console.ResetColor();
             }
-            Console.Write("\nPress and key to continue >> ");
+            Console.Write("\nPress any key to continue >> ");
             Console.ReadLine();
         }
 
@@ -191,10 +199,20 @@ namespace RecipeApp
             Console.WriteLine("   Reset Recipe  ");
             Console.WriteLine("-----------------\n");
 
+            Console.WriteLine("[List of Recipes]\n");
             //If recipeList is not empty then display the recipe details
             if (recipeList.Count() > 0)
             {
-                Console.WriteLine("Choose an option:");
+                // sort recipeList by recipeName in alphabetical order
+                recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
+
+                //List all recipes
+                foreach (Recipe recipe in recipeList)
+                {
+                    Console.WriteLine("* " + recipe.recipeName);
+                }
+
+                Console.WriteLine("\nChoose an option:");
                 Console.WriteLine("1. Reset quantities to original values");
                 Console.WriteLine("2. Exit");
 

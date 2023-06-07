@@ -6,8 +6,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using System.Xml.Schema;
-using Microsoft.VisualBasic.FileIO;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace RecipeApp
 {
@@ -25,7 +23,15 @@ namespace RecipeApp
         {
             if (totalCalories > 300)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nThe total calories of this recipe exceeds 300!");
+
+                double dailyIntakePercent;
+                dailyIntakePercent = (totalCalories / 2000) * 100;
+
+                Console.WriteLine("This is {0}% of your daily recommended caloric intake", dailyIntakePercent);
+                Console.WriteLine();
+                Console.ResetColor();
             }
         }
 
@@ -244,6 +250,8 @@ namespace RecipeApp
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
 
+                    Console.WriteLine("The amount of energy in food or drink is measured in calories");
+
                     isValid = false;
                     while (!isValid)
                     {
@@ -265,10 +273,10 @@ namespace RecipeApp
                         }
                     }
 
-                    Console.WriteLine("A food group is a collection of foods " +
-                        "that share similar nutritional properties or biological classifications.");
+                    Console.WriteLine("\nA food group is a collection of foods " +
+                        "\nthat share similar nutritional properties or biological classifications.");
 
-                    Console.WriteLine("Choose a food group for your ingredient:");
+                    Console.WriteLine("\nChoose a food group for your ingredient:");
                     Console.WriteLine("1. Starchy Foods");
                     Console.WriteLine("2. Vegetables and Fruits");
                     Console.WriteLine("3. Dry beans, peas, lentils and soya");
@@ -309,7 +317,7 @@ namespace RecipeApp
                     switch (option)
                     {
                         case 1:
-                            ingredientFoodGroup = "Starchy foods";
+                            ingredientFoodGroup = "Starchy Foods";
                             break;
                         case 2:
                             ingredientFoodGroup = "Vegetables and Fruits";
