@@ -41,13 +41,35 @@ select the "New Recipe" option.
 4.3 Users can now list the names of all recipes sorted in alphabetical order  
 4.4 Users can now choose which recipes to display from a list  
 4.5 For each ingredient a user may now capture the number of calories and the food group the ingredient belongs to  
-4.6 The total calories of a recipe will now be displayed
-4.7 
+4.6 The total calories of a recipe will now be displayed  
+4.7 When a recipe exceeds 300 calories the user will be alerted  
+4.8 Errors are now displayed in red text  
+4.9 The user is now given an explanation of what calories are  
+4.10 The user is now given an explanation of what a food group is  
 
-## 5. References
+## 5. Changes implemented thanks to Mr. Chikoo's feedback
+
+After reading the feedback provided by Mr. Chikoo I have since implemented improvements to each section as listed:
+
+#### Repository management: 
+- I have made more frequent commits to github.
+
+#### App Functionality: 
+- Users are now informed of the datatype required for  
+the input required to avoid confusion. 
+- I have also improved the  
+structure of my Console Outputs.
+
+#### Coding standards
+- I have included regions within my code.
+
+#### Documentation
+- I have added more detail to my README file.                               
+
+## 6. References
 Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in  
 programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
 
-## 6. License
+## 7. License
 
 [MIT](https://choosealicense.com/licenses/mit/)
