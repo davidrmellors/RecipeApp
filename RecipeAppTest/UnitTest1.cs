@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// Code Attribution
+// Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using RecipeApp;
 using System.Collections.Generic;
@@ -14,26 +17,24 @@ public class UnitTest1
     {
         //List to store ingredients
         List<Ingredients> ingredientsList = new List<Ingredients>();
+        List<Steps> stepsList = new List<Steps>();
 
         //Ingredient objects to be added to list
         Ingredients ingredients1 = new Ingredients("Sugar", 1, "spoon", 200, "Starchy Foods");
         Ingredients ingredients2 = new Ingredients("Milk", 100, "ml", 2, "Milk and dairy products");
+        Steps steps1 = new Steps("Add milk and sugar to bowl");
 
         ingredientsList.Add(ingredients1);
         ingredientsList.Add(ingredients2);
+        stepsList.Add(steps1);
 
-        //double used to store total calories
-        double totalCalories = 0;
+        Recipe recipe = new Recipe("Bread", ingredientsList, stepsList);
 
-        //foreach used to add calories of all ingredients within ingredientsList
-        foreach (Ingredients ingredients in ingredientsList)
-        {
-            totalCalories += ingredients.IngredientCalories;
-        }
+        //Use RecipeCalories() method to calculate recipe Calories
+        double result = recipe.RecipeCalories(ingredientsList);
 
         //100 calories + 200 calories is 300 calories
         double expected = 300;
-        double result = totalCalories;
 
         //Assert.AreEqual used to test if expected result and result are equal
         Assert.AreEqual(expected, result);

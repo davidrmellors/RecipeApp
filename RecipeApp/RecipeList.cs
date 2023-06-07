@@ -1,5 +1,6 @@
 ﻿// Code Attribution
 // Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,13 @@ namespace RecipeApp
     {
         static List<Recipe> recipeList = new List<Recipe>();
 
-        //Constructor takes object of Recipe class and stores in recipeList array
+        //Constructor takes object of Recipe class and stores in recipeList
         public RecipeList(Recipe recipe)
         {
             recipeList.Add(recipe);
         }
 
+        //Method used to display all recipe names and then display desired recipe details
         public static void ListRecipes()
         {
             Console.Clear();
@@ -28,10 +30,12 @@ namespace RecipeApp
                 // sort recipeList by recipeName in alphabetical order
                 recipeList = recipeList.OrderBy(r => r.recipeName).ToList();
 
+                //for each recipe in the recipe list output the recipe name
                 foreach (Recipe recipe in recipeList)
                 {
                     Console.WriteLine("* " + recipe.recipeName);
                 }
+                //menu to ask user whether they want to display a recipe or exit
                 Console.WriteLine("---------------");
                 Console.WriteLine("\nChoose an option:");
                 Console.WriteLine("1. Display a recipe's details");
@@ -48,6 +52,7 @@ namespace RecipeApp
 
                     string recipeName = Console.ReadLine();
 
+                    //for each recipe in recipeList output all recipe details
                     foreach (Recipe recipe in recipeList)
                     {
                         if (recipeName.Equals(recipe.recipeName))
@@ -257,7 +262,7 @@ namespace RecipeApp
             Console.ReadLine();
         }
 
-        //Method used to empty the recipeList array
+        //Method used to empty the recipeList List
         public static void ClearRecipe()
         {
             //Clears the console window to de-clutter console output

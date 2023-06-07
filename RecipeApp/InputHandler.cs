@@ -18,17 +18,22 @@ namespace RecipeApp
 
         delegate void CaloriesChecker(int totalCalories);
 
-        //define the method to output warning message when total calories exceed 300
+        //method to output warning message when total calories exceed 300
         static void WarnExceedCalories(int totalCalories)
         {
             if (totalCalories > 300)
             {
+                // set console text colour to red
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\nThe total calories of this recipe exceeds 300!");
 
+                //calculate percentage of daily calorie intake
+
                 double dailyIntakePercent;
+
                 dailyIntakePercent = (totalCalories / 2000) * 100;
 
+                //output of daily caloric intake to user
                 Console.WriteLine("This is {0}% of your daily recommended caloric intake", dailyIntakePercent);
                 Console.WriteLine();
                 Console.ResetColor();
@@ -42,9 +47,9 @@ namespace RecipeApp
             //integer variable used to condition while loop
             //loop will break only when the user enters the number 6
             int option = 0;
-
             while (option != 6)
             {
+                #region Menu
                 //Clears the console window to de-clutter console output
                 Console.Clear();
                 Console.WriteLine("-----------------");
@@ -60,9 +65,8 @@ namespace RecipeApp
                 Console.WriteLine("5. Clear recipe");
                 Console.WriteLine("6. Exit");
 
-                //Store user's input in option to analyze which menu option they
-                //choose
-
+                //Try Catch used to validate that the user is entering an integer
+                //and is a valid menu option
                 int input = 0;
                 bool isValid = false;
                 while (!isValid)
@@ -93,9 +97,9 @@ namespace RecipeApp
                         Console.ResetColor();
                     }
                 }
+
                 //switch statement which calls the relevent method responsible
                 //for the funtionality of the menu option the user chooses
-
                 switch (input)
                 {
                     case 1:
@@ -120,6 +124,7 @@ namespace RecipeApp
                         break;
                 }
             }
+            #endregion
         }
 
         //Method used to instantiate relevent ingredient and step details
@@ -135,6 +140,7 @@ namespace RecipeApp
             string recipeName;
             bool correct = false;
 
+            // confirmation of users recipe name
             do
             {
                 Console.Write("\nPlease enter the name of your recipe >> ");
@@ -152,14 +158,13 @@ namespace RecipeApp
             //Clears the console window to de-clutter console output
             Console.Clear();
 
+            #region Ingredients
             //Ingredients section
             Console.WriteLine("----------------------");
-            Console.WriteLine("Ingredients for {0}  ", recipeName);
+            Console.WriteLine("Ingredients for {0}  ", recipeName); //uses recipes name as heading
             Console.WriteLine("----------------------");
 
-            //verify user input is an int using ValidateInt() method and then storing
-            //the verified value in numOfIngredients varaible
-
+            //Try Catch used to validate that the user is entering an integer
             int numOfIngredients = 0;
             bool isValid = false;
             while (!isValid)
@@ -182,9 +187,7 @@ namespace RecipeApp
 
 
 
-            //Create new Array of type Ingredients with the length of numOfIngredients
-            /*Ingredients[] ingredients = new Ingredients[numOfIngredients];*/
-
+            //Create new List of type Ingredients with the length of numOfIngredients
             List<Ingredients> ingredientsList = new List<Ingredients>();
 
             //int used to keep track of totalCalories
@@ -193,16 +196,18 @@ namespace RecipeApp
             //instantiate the delegate with the defined method
             CaloriesChecker caloriesChecker = WarnExceedCalories;
 
-            //for loop used to instantiate each position of the array with
-            //ingredient quantity, ingredient unit of measure and ingredient name
+            //for loop used to instantiate each position of the List with
+            //ingredient quantity, ingredient unit of measure, ingredient name
+            //ingredientFoodGroup and ingredientCalories
             for (int i = 0; i < numOfIngredients; i++)
             {
                 //bool variable used to condition the do while loop
                 correct = false;
-                //strings used to store the name and unitOfMeasure of each ingredient
+                //strings used to store the name, unitOfMeasure and food group of each ingredient
                 string ingredientName, unitOfMeasure, ingredientFoodGroup = "";
-                //dobule used to store the Quantity of each ingredient
+                //double used to store the Quantity of each ingredient
                 double ingredientQty;
+                //int used to store the total calories for each ingredient
                 int ingredientCalories = 0;
 
                 //do while that loops until the user is happy with their input
@@ -210,15 +215,17 @@ namespace RecipeApp
                 {
                     //Clears the console window to de-clutter console output
                     Console.Clear();
+                    //Outputted at first line of the console window to show user what section they are in
                     Console.WriteLine("----------------------");
                     Console.WriteLine("Ingredients for {0}  ", recipeName);
                     Console.WriteLine("----------------------\n");
 
-                    //Outputted at first line of the console window to show user what section they are in
+                    //Show user the format intended for input
                     Console.WriteLine("Please enter the details of your {0}{1} ingredient following " +
                         "\nthis format: [quantity] [unit of measure] [ingredient name] " +
                         "\nfor example: 1 cup milk", (i + 1), GetNumberSuffix(i + 1));
 
+                    //Try Catch used to validate that the user is entering an integer 
                     ingredientQty = 0;
                     isValid = false;
                     while (!isValid)
@@ -250,8 +257,10 @@ namespace RecipeApp
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
 
+                    //Explanation of calories to user
                     Console.WriteLine("The amount of energy in food or drink is measured in calories");
 
+                    //Try Catch used to validate that the user is entering an integer
                     isValid = false;
                     while (!isValid)
                     {
@@ -273,9 +282,11 @@ namespace RecipeApp
                         }
                     }
 
+                    //Explanation of what a food group is to user
                     Console.WriteLine("\nA food group is a collection of foods " +
                         "\nthat share similar nutritional properties or biological classifications.");
 
+                    //Menu used for user to choose a food group their ingredient belongs to
                     Console.WriteLine("\nChoose a food group for your ingredient:");
                     Console.WriteLine("1. Starchy Foods");
                     Console.WriteLine("2. Vegetables and Fruits");
@@ -285,6 +296,8 @@ namespace RecipeApp
                     Console.WriteLine("6. Fats and oil");
                     Console.WriteLine("7. Water");
 
+                    //Try Catch used to validate that the user is entering an integer
+                    // and a valid menu option
                     int option = 0;
                     isValid = false;
                     while (!isValid)
@@ -314,6 +327,7 @@ namespace RecipeApp
                         }
                     }
 
+                    // switch statement that assigns desired food group to ingredient
                     switch (option)
                     {
                         case 1:
@@ -369,15 +383,18 @@ namespace RecipeApp
 
                 //add the object of type Ingredients with the user entered details
                 ingredientsList.Add(new Ingredients(ingredientName, ingredientQty, unitOfMeasure, ingredientCalories, ingredientFoodGroup));
+                #endregion Ingredients
             }
             //Clears the console window to de-clutter console output
             Console.Clear();
+            #region Steps
+            //Steps Section
             Console.WriteLine("----------------------");
             Console.WriteLine("  Steps for {0}  ", recipeName);
             Console.WriteLine("----------------------");
 
             //Ask user to enter number of steps
-
+            //Try Catch used to validate that the user is entering an integer
             int numOfSteps = 0;
             isValid = false;
             while (!isValid)
@@ -398,11 +415,10 @@ namespace RecipeApp
 
             //Validate user input using ValidateInt() method and store in numOfSteps variable
 
-            //Create new array of type Steps of size numOfSteps
-            /*Steps[] steps = new Steps[numOfSteps];*/
+            //Create new List of type Steps of size numOfSteps
             List<Steps> stepsList = new List<Steps>();
 
-            //Loop used to instantiate each index of the array with a new object of type Steps
+            //Loop used to instantiate each index of the list with a new object of type Steps
             //This object takes the string step variable which holds a new step for the recipe
             //entered by the user
             for (int i = 0; i < numOfSteps; i++)
@@ -438,9 +454,10 @@ namespace RecipeApp
                 } while (correct == false);
 
                 stepsList.Add(new Steps(step));
+                #endregion Steps
             }
-            //After all ingredients and steps have been entered the ingredients array and
-            //steps array are parsed to the Recipes class using the object of the recipe class
+            //After all ingredients and steps have been entered the ingredients List,
+            //steps List and recipeName are parsed to the Recipes class using the object of the recipe class
             //named recipe
             Recipe recipe = new Recipe(recipeName, ingredientsList, stepsList);
 
@@ -449,10 +466,8 @@ namespace RecipeApp
             RecipeList recipeList = new RecipeList(recipe);
         }
 
-        //Takes a string num as parameter and trys to convert num to int
-        //if the conversion fails it means the user has not entered an int
-        //the user is then asked to re-enter an int until the conversion is
-        //successful. The user entered int is then returned
+        //Method used to store Try Catch used to validate that the user is entering an integer
+        //for better coding practice
         public static int ValidateInt()
         {
             int num = 0;
@@ -472,6 +487,7 @@ namespace RecipeApp
                     Console.ResetColor();
                 }
             }
+            // return validated input
             return num;
         }
 

@@ -40,7 +40,7 @@ namespace RecipeApp
         }
 
         //method that takes scale value as parameter and multiplies local
-        //ingredient quantitiy by scale value "factor"
+        //ingredient quantitiy and ingredientCalories by scale value "factor"
         public void Scale(double factor)
         {
             //original ingredient quantity stored in IngredientQtyOriginal variable
@@ -52,6 +52,7 @@ namespace RecipeApp
 
         }
 
+        //Method used to restore recipe calories and qty to original values
         public void ResetRecipe()
         {
             IngredientQty = IngredientQtyOriginal;

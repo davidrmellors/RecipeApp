@@ -23,7 +23,8 @@ namespace RecipeApp
             this.stepsList = stepsList;
         }
 
-        public double RecipeCalories()
+        //Calculate total calories within a recipe
+        public double RecipeCalories(List<Ingredients> ingredientsList)
         {
             double totalCalories = 0;
             foreach (Ingredients ingredients in ingredientsList)
@@ -42,15 +43,15 @@ namespace RecipeApp
 
             int count = 1;
 
-            output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories());
+            output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories(ingredientsList));
 
             double dailyIntakePercent;
 
-            dailyIntakePercent = (RecipeCalories() / 2000) * 100;
+            dailyIntakePercent = (RecipeCalories(ingredientsList) / 2000) * 100;
 
             output += string.Format("This is {0}% of your daily recommended caloric intake\n", dailyIntakePercent);
 
-            RecipeCalories();
+            RecipeCalories(ingredientsList);
 
             foreach (Ingredients ingredient in ingredientsList)
             {
