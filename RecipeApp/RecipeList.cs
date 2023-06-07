@@ -113,13 +113,21 @@ namespace RecipeApp
 
                             int option = 0;
                             bool isValid = false;
-                            while (!isValid || option > 4 || option < 1)
+                            while (!isValid)
                             {
                                 Console.Write(">> ");
                                 try
                                 {
                                     option = int.Parse(Console.ReadLine());
-                                    isValid = true;
+                                    if(option > 0 && option < 5)
+                                    {
+                                        isValid = true;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input." +
+                                        "\nThe menu option you entered does not exist.");
+                                    }
                                 }
                                 catch (FormatException e)
                                 {

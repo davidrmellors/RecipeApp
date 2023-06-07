@@ -6,6 +6,7 @@ using System.Collections;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using Microsoft.VisualBasic.FileIO;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace RecipeApp
 {
@@ -54,11 +55,35 @@ namespace RecipeApp
 
                 //Store user's input in option to analyze which menu option they
                 //choose
-                int input = InputHandler.ValidateInt();
+
+                int input = 0;
+                bool isValid = false;
+                while(!isValid)
+                {
+                    Console.Write(">> ");
+                    try
+                    {
+                        input = int.Parse(Console.ReadLine());
+                        if(input > 0 && input < 7)
+                        {
+                            isValid = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input." +
+                            "\nThe menu option you entered does not exist.");
+                        }
+                    }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Invalid input." +
+                            "\nPlease enter the integer associated with your option of choice.");
+                    }
+                }
                 //switch statement which calls the relevent method responsible
                 //for the funtionality of the menu option the user chooses
 
-                switch(input)
+                switch (input)
                 {
                     case 1:
                         AddRecipe();
@@ -205,7 +230,7 @@ namespace RecipeApp
                     //validate user input is not empty using NotNull() method
                     //and then store the returned value in ingredientName variable
                     ingredientName = (NotNull(Console.ReadLine()));
-
+                 
                     isValid = false;
                     while (!isValid)
                     {
@@ -225,10 +250,69 @@ namespace RecipeApp
                         }
                     }
 
+                    Console.WriteLine("A food group is a collection of foods " +
+                        "that share similar nutritional properties or biological classifications.");
 
-                    Console.Write("\nPlease enter the name of the food group" +
-                        "\nthis ingredient belongs to >> ");
-                    ingredientFoodGroup = (NotNull(Console.ReadLine()));
+                    Console.WriteLine("Choose a food group for your ingredient:");
+                    Console.WriteLine("1. Starchy Foods");
+                    Console.WriteLine("2. Vegetables and Fruits");
+                    Console.WriteLine("3. Dry beans, peas, lentils and soya");
+                    Console.WriteLine("4. Chicken, fish, meat and eggs");
+                    Console.WriteLine("5. Milk and dairy products");
+                    Console.WriteLine("6. Fats and oil");
+                    Console.WriteLine("7. Water");
+
+                    int option = 0;
+                    isValid = false;
+                    while (!isValid)
+                    {
+                        Console.Write(">> ");
+                        try
+                        {
+                            option = int.Parse(Console.ReadLine());
+                            if (option > 0 && option < 8)
+                            {
+                                isValid = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid input." +
+                                "\nThe menu option you entered does not exist.");
+                            }
+                        }
+                        catch (FormatException e)
+                        {
+                            Console.WriteLine("Invalid input." +
+                                "\nPlease enter the integer associated with your option of choice.");
+                        }
+                    }
+
+                    switch(option)
+                    {
+                        case 1:
+                            ingredientFoodGroup = "Starchy foods";
+                            break;
+                        case 2:
+                            ingredientFoodGroup = "Vegetables and Fruits";
+                            break;
+                        case 3:
+                            ingredientFoodGroup = "Dry beans, peas, lentils and soya";
+                            break;
+                        case 4:
+                            ingredientFoodGroup = "Chicken, fish, meat and eggs";
+                            break;
+                        case 5:
+                            ingredientFoodGroup = "Milk and dairy products";
+                            break;
+                        case 6:
+                            ingredientFoodGroup = "Fats and oils";
+                            break;
+                        case 7:
+                            ingredientFoodGroup = "Water";
+                            break;
+                        default:
+                            break;
+                    }
 
 
                     //Clears the console window to de-clutter console output

@@ -1,42 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeAppTests\\RecipeAppTests.csproj": {}
+    "/Users/davidmellors/repos/RecipeApp/RecipeAppTests/RecipeAppTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeAppTests\\RecipeAppTests.csproj": {
+    "/Users/davidmellors/repos/RecipeApp/RecipeAppTests/RecipeAppTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeAppTests\\RecipeAppTests.csproj",
+        "projectUniqueName": "/Users/davidmellors/repos/RecipeApp/RecipeAppTests/RecipeAppTests.csproj",
         "projectName": "RecipeAppTests",
-        "projectPath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeAppTests\\RecipeAppTests.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeAppTests\\obj\\",
+        "projectPath": "/Users/davidmellors/repos/RecipeApp/RecipeAppTests/RecipeAppTests.csproj",
+        "packagesPath": "/Users/davidmellors/.nuget/packages/",
+        "outputPath": "/Users/davidmellors/repos/RecipeApp/RecipeAppTests/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/davidmellors/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj": {
-                "projectPath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj"
-              }
-            }
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -46,8 +36,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -82,67 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj",
-        "projectName": "RecipeApp",
-        "projectPath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\RecipeApp.csproj",
-        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\source\\repos\\DavidMellors-ST10241466-PROG6221POE-Part1\\RecipeApp\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }

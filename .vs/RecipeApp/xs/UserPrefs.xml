@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{E7C2545A-AE68-46B3-8CD9-4BA0967EDB84}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workbench ActiveDocument="RecipeApp/InputHandler.cs">
     <Files>
-      <File FileName="RecipeApp/Program.cs" Line="3" Column="1" />
-      <File FileName="RecipeApp/InputHandler.cs" Line="3" Column="1" />
-      <File FileName="RecipeApp/RecipeList.cs" />
-      <File FileName="RecipeApp/Recipe.cs" />
+      <File FileName="RecipeApp/Program.cs" />
+      <File FileName="RecipeApp/InputHandler.cs" Line="311" Column="51" />
+      <File FileName="RecipeApp/RecipeList.cs" Line="156" Column="34" />
+      <File FileName="RecipeApp/Recipe.cs" Line="20" Column="42" />
       <File FileName="RecipeApp/Ingredients.cs" />
       <File FileName="RecipeApp/Steps.cs" />
     </Files>
@@ -12,19 +13,20 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RecipeApp" expanded="True">
-            <Node name="RecipeApp" expanded="True">
-              <Node name="InputHandler.cs" selected="True" />
+            <Node name="RecipeApp" expanded="True" selected="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+              </Node>
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.RecipeApp PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.RecipeApp PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
