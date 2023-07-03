@@ -1,0 +1,217 @@
+﻿<Window x:Class="RecipeAppGUI.Ingredients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RecipeAppGUI"
+        mc:Ignorable="d"
+        Title="Ingredients" 
+        Height="600" Width="920"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Background="#14263a">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Ingredients"
+                       Grid.Column="0"
+                       FontSize="28"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="20,0,0,0"
+                    FontFamily="Fonts/#Poppins"/>
+            </Grid>
+
+        </Border>
+
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right">
+            
+            <Label Content="Ingredient Name"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20"/>
+            <Label Content="Ingredient Quantity"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20"/>
+            <Label Content="Ingredient Unit of Measure"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20"/>
+            <Label Content="Total Calories"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20"/>
+            <Label Content="Food Group"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20"/>
+            
+            
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left"
+                    Margin="40"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Center">
+            <Border Margin="0,0,0,5"
+                    Width="200"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <TextBox 
+                 Background="Transparent"
+                 BorderThickness="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Left"
+                FontFamily="Fonts/#Poppins"
+                Margin="5"/>
+            </Border>
+            <Border Margin="0,0,0,5"
+                    Width="200"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <TextBox 
+                 Background="Transparent"
+                 BorderThickness="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Left"
+                FontFamily="Fonts/#Poppins"
+                Margin="5"/>
+            </Border>
+            <Border Margin="0,0,0,5"
+                    Width="200"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <TextBox 
+                 Background="Transparent"
+                 BorderThickness="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Left"
+                FontFamily="Fonts/#Poppins"
+                Margin="5"/>
+            </Border>
+            <Border Margin="0,0,0,5"
+                    Width="200"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <TextBox 
+                 Background="Transparent"
+                 BorderThickness="0"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Left"
+                FontFamily="Fonts/#Poppins"
+                Margin="5"/>
+            </Border>
+            <Border Margin="0,0,0,5"
+                    Width="200"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <ComboBox x:Name="comboBox"
+                          SelectedIndex="0"
+                          FontFamily="Fonts/#Poppins">
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                    <ComboBoxItem>Item 3</ComboBoxItem>
+                </ComboBox>
+            </Border>
+            
+            
+        </StackPanel>
+        
+
+        
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <Button x:Name="CancelButton"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Height="30"
+                    Width="100"
+                    Content="Cancel"
+                    BorderThickness="0"
+                    Background="DarkGray"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins"
+                    Margin="20" Click="CancelButton_Click_1">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                RadiusY="10"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+
+
+            <Button x:Name="NextButton"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Grid.Row="1"
+                    Grid.RowSpan="3"
+                    Height="30"
+                    Width="100"
+                    Content="Next"
+                    BorderThickness="0"
+                    Background="#0d6efd"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins"
+                    Margin="20">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                RadiusY="10"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -6,3 +6,11 @@ C:\Users\David\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\
 C:\Users\David\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.csproj.CoreCompileInputs.cache
 C:\Users\David\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.exe
 C:\Users\David\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.pdb
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\bin\Debug\RecipeApp.exe.config
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\bin\Debug\RecipeApp.exe
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\bin\Debug\RecipeApp.pdb
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.exe
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeApp\obj\Debug\RecipeApp.pdb
