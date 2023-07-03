@@ -26,8 +26,8 @@ namespace RecipeAppGUI
 
         private void YesButton_Click(object sender, RoutedEventArgs e)
         {
+            IngredientsWindow ingredientsWindow = new IngredientsWindow();
             this.Close();
-
         }
 
         private void NoButton_Click(object sender, RoutedEventArgs e)

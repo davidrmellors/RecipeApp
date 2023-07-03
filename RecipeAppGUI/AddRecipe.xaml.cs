@@ -34,8 +34,8 @@ namespace RecipeAppGUI
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            Ingredients ingredients = new Ingredients();
-            ingredients.Show();
+            IngredientsWindow ingredientsWindow = new IngredientsWindow();
+            ingredientsWindow.Show();
         }
     }
 }

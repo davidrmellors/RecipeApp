@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:RecipeAppGUI"
         mc:Ignorable="d"
         Title="IngredientMessageDialog" Height="200" Width="400"
-        FontFamily="Fonts/#Poppins">
+        FontFamily="Fonts/#Poppins"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

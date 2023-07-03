@@ -59,7 +59,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ingredients.xaml">
+    <Page Include="IngredientMessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IngredientsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,8 +78,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ingredients.xaml.cs">
-      <DependentUpon>Ingredients.xaml</DependentUpon>
+    <Compile Include="IngredientMessageDialog.xaml.cs">
+      <DependentUpon>IngredientMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IngredientsWindow.xaml.cs">
+      <DependentUpon>IngredientsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -108,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RecipeApp\RecipeApp.csproj">
+      <Project>{a4fb3dd9-1757-42c9-81d3-63a7ac86eda7}</Project>
+      <Name>RecipeApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

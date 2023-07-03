@@ -5,12 +5,10 @@ C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\Re
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\App.g.cs
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI_MarkupCompile.cache
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI_MarkupCompile.lref
-C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\Ingredients.g.cs
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeAppGUI.exe.config
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeAppGUI.exe
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeAppGUI.pdb
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\AddRecipe.baml
-C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\Ingredients.baml
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\MainWindow.baml
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.g.resources
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.Properties.Resources.resources
@@ -18,3 +16,11 @@ C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\Re
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.csproj.CoreCompileInputs.cache
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.exe
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.pdb
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientMessageDialog.g.cs
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeApp.exe
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeApp.pdb
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\bin\Debug\RecipeApp.exe.config
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientMessageDialog.baml
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.csproj.CopyComplete
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientsWindow.g.cs
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientsWindow.baml
