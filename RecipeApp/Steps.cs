@@ -8,6 +8,7 @@ namespace RecipeApp
     public class Steps
     {
         public string Step;
+        public int StepNum;
 
         //string step entered by user is taken as argument and then stored locally
         public Steps(string step)

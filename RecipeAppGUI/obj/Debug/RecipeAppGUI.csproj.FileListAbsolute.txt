@@ -24,3 +24,8 @@ C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\Re
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\RecipeAppGUI.csproj.CopyComplete
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientsWindow.g.cs
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\IngredientsWindow.baml
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\StepsMessageDialog.g.cs
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\StepsWindow.g.cs
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\StepsMessageDialog.baml
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\StepsWindow.baml
+C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\obj\Debug\GeneratedInternalTypeHelper.g.cs

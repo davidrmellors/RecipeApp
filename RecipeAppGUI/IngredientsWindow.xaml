@@ -49,6 +49,7 @@
 
         </Border>
 
+
         <StackPanel x:Name="ErrorStackPanel" 
             Orientation="Horizontal"
                     Grid.Row="1"
@@ -80,9 +81,7 @@
 
             </Button>
         </StackPanel>
-        
-        
-        
+
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Grid.Column="0"
@@ -180,7 +179,8 @@
             </Border>
 
             <ComboBox Width="250" Height="40"
-                      x:Name="FoodGroupComboBox">
+                      x:Name="FoodGroupComboBox"
+                      SelectedItem="Starchy Foods">
                 <ComboBox.Resources>
                     <Style x:Key="ComboBoxToggleButtonStyle" TargetType="ToggleButton">
                         <Setter Property="Template">
@@ -327,19 +327,19 @@
             </Button>
 
 
-            <Button x:Name="NextButton"
+            <Button x:Name="SubmitButton"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
                     Grid.Row="1"
                     Grid.RowSpan="3"
                     Height="30"
                     Width="100"
-                    Content="Next"
+                    Content="Submit"
                     BorderThickness="0"
                     Background="#0d6efd"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20" Click="NextButton_Click">
+                    Margin="20" Click="SubmitButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"

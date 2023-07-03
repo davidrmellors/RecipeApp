@@ -20,96 +20,66 @@ namespace RecipeAppGUI
     /// </summary>
     public partial class IngredientsWindow : Window
     {
-        List<Ingredients> ingredientsList = new List<Ingredients>();
         public IngredientsWindow()
         {
             InitializeComponent();
            
         }
 
-        
-
-
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-
+            AddRecipe addRecipe = new AddRecipe();
+            this.Close();
+            addRecipe.Show();
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-
             ErrorStackPanel.Visibility = Visibility.Hidden;
 
-            
+            InputHandler inputHandler = new InputHandler();
 
-            string ingredientName, ingredientUnitOfMeasure, ingredientFoodGroup;
-            double ingredientQuantity = 0;
-            int ingredientCalories;
-
-            if(IngredientNameTextBox.Text.Length == 0 || IngredientUnitOfMeasureTextBox.Text.Length == 0 || IngredientQuantityTextBox.Text.Length == 0 ||
-                TotalCaloriesTextBox.Text.Length == 0 || FoodGroupComboBox.Text.Length == 0)
+            if (IngredientNameTextBox.Text.Length == 0 || IngredientUnitOfMeasureTextBox.Text.Length == 0 || IngredientQuantityTextBox.Text.Length == 0 ||
+            TotalCaloriesTextBox.Text.Length == 0 || FoodGroupComboBox.Text.Length == 0)
             {
-                
+
                 ErrorLabel.Content = "All fields are required";
                 ErrorStackPanel.Visibility= Visibility.Visible;
                 return;
             }
 
-            ingredientName = IngredientNameTextBox.Text.ToString();
-            ingredientUnitOfMeasure = IngredientUnitOfMeasureTextBox.Text.ToString();
-            ingredientFoodGroup = FoodGroupComboBox.SelectedItem.ToString();
-
-            if(ValidateDouble(IngredientQuantityTextBox.Text) == true)
-            {
-                ingredientQuantity = double.Parse(IngredientQuantityTextBox.Text);
-            }
-            else
+            if(inputHandler.ValidateDouble(IngredientQuantityTextBox.Text) == false)
             {
                 ErrorLabel.Content = "Please enter a value of type double for ingredient quantity";
                 ErrorStackPanel.Visibility = Visibility.Visible;
                 return;
             }
 
-
-            if(ValidateInt(TotalCaloriesTextBox.Text) == true)
-            {
-                ingredientCalories = int.Parse(TotalCaloriesTextBox.Text);
-            }
-            else
+            if (inputHandler.ValidateInt(TotalCaloriesTextBox.Text) == false)
             {
                 ErrorLabel.Content = "Please enter a value of type int for total calories";
                 ErrorStackPanel.Visibility = Visibility.Visible;
                 return;
             }
 
-            ingredientsList.Add(new Ingredients(ingredientName, ingredientQuantity, ingredientUnitOfMeasure,
+            string ingredientName = IngredientNameTextBox.Text.ToString();
+            string ingredientUnitOfMeasure = IngredientUnitOfMeasureTextBox.Text.ToString();
+            string ingredientFoodGroup = FoodGroupComboBox.SelectedItem.ToString();
+            double ingredientQuantity = double.Parse(IngredientQuantityTextBox.Text);
+            int ingredientCalories = int.Parse(TotalCaloriesTextBox.Text);
+
+            
+            MainWindow.ingredientsList.Add(new Ingredients(ingredientName, ingredientQuantity, ingredientUnitOfMeasure,
             ingredientCalories, ingredientFoodGroup));
 
-            IngredientNameTextBox.Clear();
-            IngredientQuantityTextBox.Clear();
-            IngredientUnitOfMeasureTextBox.Clear();
-            TotalCaloriesTextBox.Clear();
-            FoodGroupComboBox.SelectedItem = "";
-
-            IngredientMessageDialog dialog = new IngredientMessageDialog();
-
-            dialog.ShowDialog();
-            
+            this.Close();
+            AddRecipe addRecipe = new AddRecipe();
+            addRecipe.Show();
         }
 
-        public bool ValidateDouble(string num)
-        {
-            bool c = double.TryParse(num, out _);
+        
 
-            return c;
-        }
-
-        public bool ValidateInt(string num)
-        {
-            bool c = int.TryParse(num, out _);
-
-            return c;
-        }
+        
 
 
 

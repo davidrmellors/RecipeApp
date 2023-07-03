@@ -4,6 +4,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace RecipeApp
 {
@@ -11,12 +12,12 @@ namespace RecipeApp
     public class Recipe
     {
         public string recipeName;
-        public List<Ingredients> ingredientsList = new List<Ingredients>();
-        public List<Steps> stepsList = new List<Steps>();
+        public ObservableCollection<Ingredients> ingredientsList = new ObservableCollection<Ingredients>();
+        public ObservableCollection<Steps> stepsList = new ObservableCollection<Steps>();
 
         //Ingredients[] and Steps[] taken as parameters in Recipe constructor
         //In order to group both arrays into one recipe object
-        public Recipe(string recipeName, List<Ingredients> ingredientsList, List<Steps> stepsList)
+        public Recipe(string recipeName, ObservableCollection<Ingredients> ingredientsList, ObservableCollection<Steps> stepsList)
         {
             this.recipeName = recipeName;
             this.ingredientsList = ingredientsList;

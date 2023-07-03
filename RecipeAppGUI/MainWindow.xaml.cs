@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RecipeApp;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,27 @@ namespace RecipeAppGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public static ObservableCollection<Recipe> recipeList = new ObservableCollection<Recipe>();
+        public static ObservableCollection<Ingredients> ingredientsList = new ObservableCollection<Ingredients>();
+        public static ObservableCollection<Steps> stepsList = new ObservableCollection<Steps>();
+        public static ObservableCollection<string> recipeNamesList = new ObservableCollection<string>();
+        public static ObservableCollection<string> ingredientNamesList = new ObservableCollection<string>();
+        public static ObservableCollection<string> stepsDescList = new ObservableCollection<string>();
+
+        public MainWindow(ObservableCollection<Recipe> recipes)
         {
             InitializeComponent();
+
+            recipeNamesList.Clear();
+
+            recipeList = recipes;
+
+            foreach(Recipe recipe in recipeList)
+            {
+                recipeNamesList.Add(recipe.recipeName.ToString());
+            }
+
+            RecipeListBox.ItemsSource = recipeNamesList;
         }
 
         private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
@@ -30,6 +50,11 @@ namespace RecipeAppGUI
             this.Hide();
             AddRecipe addRecipe = new AddRecipe();
             addRecipe.Show();
+
+        }
+
+        public void CheckRecipes()
+        {
 
         }
     }

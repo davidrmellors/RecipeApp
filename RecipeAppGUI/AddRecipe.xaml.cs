@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,33 @@ namespace RecipeAppGUI
     /// </summary>
     public partial class AddRecipe : Window
     {
+
+        public static string RecipeName;
+        public static int NumberOfIngredients;
+        public static int NumberOfSteps;
         public AddRecipe()
         {
             InitializeComponent();
+
+            MainWindow.ingredientNamesList.Clear();
+            MainWindow.stepsDescList.Clear();
+
+            foreach(Ingredients ingredient in MainWindow.ingredientsList)
+            {
+                MainWindow.ingredientNamesList.Add(ingredient.IngredientName.ToString());
+            }
+
+            foreach(Steps steps in MainWindow.stepsList)
+            {
+                MainWindow.stepsDescList.Add(steps.Step.ToString());
+            }
+
+            IngredientsListBox.ItemsSource = MainWindow.ingredientNamesList;
+            StepsListBox.ItemsSource = MainWindow.stepsDescList;
         }
+
+
+
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
@@ -31,11 +55,41 @@ namespace RecipeAppGUI
             mainWindow.Show();
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        
+
+        private void CloseErrorButton_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorStackPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void AddIngredientButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             IngredientsWindow ingredientsWindow = new IngredientsWindow();
             ingredientsWindow.Show();
+        }
+
+        private void AddStepButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            StepsWindow stepsWindow = new StepsWindow();
+            stepsWindow.Show();
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorStackPanel.Visibility = Visibility.Hidden;
+
+            if(RecipeNameTextBox.Text.Length == 0)
+            {
+                ErrorLabel.Content = "Recipe name cannot be null";
+                ErrorStackPanel.Visibility= Visibility.Visible;
+                return;
+            }
+
+            string recipeName = RecipeNameTextBox.Text.ToString();
+
+            Recipe recipe = new Recipe(recipeName, MainWindow.ingredientsList, MainWindow.stepsList);
         }
     }
 }

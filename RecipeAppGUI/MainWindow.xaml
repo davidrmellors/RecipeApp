@@ -55,13 +55,7 @@
                  Height="350"
                  Width="300"
                  Margin="0,0,0,0"
-                 FontFamily="Fonts/#Poppins">
-            <ListBox.Items>
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-            </ListBox.Items>
-        </ListBox>
+                 FontFamily="Fonts/#Poppins" />
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2"

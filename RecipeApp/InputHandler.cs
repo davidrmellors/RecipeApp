@@ -468,44 +468,21 @@ namespace RecipeApp
 
         //Method used to store Try Catch used to validate that the user is entering an integer
         //for better coding practice
-        public static int ValidateInt()
+        public bool ValidateInt(string num)
         {
-            int num = 0;
-            bool isValid = false;
-            while (!isValid)
-            {
-                Console.Write(">> ");
-                try
-                {
-                    num = int.Parse(Console.ReadLine());
-                    isValid = true;
-                }
-                catch (FormatException e)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid input.\nPlease enter the integer associated with your option of choice.");
-                    Console.ResetColor();
-                }
-            }
-            // return validated input
-            return num;
+            bool c = int.TryParse(num, out _);
+
+            return c;
         }
 
         //Takes a string num as parameter and trys to convert num to double
         //if the conversion fails it means the user has not entered a double
         //the user is then asked to re-enter a double until the conversion is
         //successful. The user entered double is then returned
-        public static double ValidateDouble(string num)
+        public bool ValidateDouble(string num)
         {
-            double c;
-            while (double.TryParse(num, out c) == false)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("Please enter a value of type double: ");
-                Console.ResetColor();
-                num = Console.ReadLine();
-            }
-            Console.WriteLine("Captured value: {0}\n", c);
+            bool c = double.TryParse(num, out _);
+
             return c;
         }
 
@@ -550,6 +527,11 @@ namespace RecipeApp
             }
             Console.WriteLine("Captured value : {0}\n", input);
             return input;
+        }
+
+        internal static int ValidateInt()
+        {
+            throw new NotImplementedException();
         }
     }
 }

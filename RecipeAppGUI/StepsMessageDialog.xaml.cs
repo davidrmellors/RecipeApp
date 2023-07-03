@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace RecipeAppGUI
 {
     /// <summary>
-    /// Interaction logic for IngredientMessageDialog.xaml
+    /// Interaction logic for StepsMessageDialog.xaml
     /// </summary>
-    public partial class IngredientMessageDialog : Window
+    public partial class StepsMessageDialog : Window
     {
-        public IngredientMessageDialog()
+        public StepsMessageDialog()
         {
             InitializeComponent();
         }
@@ -32,7 +32,6 @@ namespace RecipeAppGUI
         private void NoButton_Click(object sender, RoutedEventArgs e)
         {
 
-            this.Close();
         }
     }
 }
