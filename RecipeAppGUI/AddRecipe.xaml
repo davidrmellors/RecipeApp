@@ -99,7 +99,7 @@
                     Background="DarkGray"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20" Click="CancelButton_Click_1">
+                    Margin="20" Click="CancelButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"
@@ -120,7 +120,7 @@
                     Background="#0d6efd"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20">
+                    Margin="20" Click="NextButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"

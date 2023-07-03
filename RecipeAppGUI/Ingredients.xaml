@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RecipeAppGUI"
+        xmlns:local="clr-namespace:RecipeAppGUI" 
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Ingredients" 
         Height="600" Width="920"
@@ -89,12 +90,12 @@
                     Grid.Column="1"
                     VerticalAlignment="Center">
             <Border Margin="0,0,0,5"
-                    Width="200"
+                    Width="250"
                     Height="40"
                     BorderThickness="1"
                     BorderBrush="Black"
                     CornerRadius="10">
-                <TextBox 
+                <TextBox x:Name="IngredientNameTextBox" 
                  Background="Transparent"
                  BorderThickness="0"
                 VerticalContentAlignment="Center"
@@ -103,12 +104,12 @@
                 Margin="5"/>
             </Border>
             <Border Margin="0,0,0,5"
-                    Width="200"
+                    Width="250"
                     Height="40"
                     BorderThickness="1"
                     BorderBrush="Black"
                     CornerRadius="10">
-                <TextBox 
+                <TextBox x:Name="IngredientQuantityTextBox"
                  Background="Transparent"
                  BorderThickness="0"
                 VerticalContentAlignment="Center"
@@ -117,12 +118,12 @@
                 Margin="5"/>
             </Border>
             <Border Margin="0,0,0,5"
-                    Width="200"
+                    Width="250"
                     Height="40"
                     BorderThickness="1"
                     BorderBrush="Black"
                     CornerRadius="10">
-                <TextBox 
+                <TextBox x:Name="IngredientUnitOfMeasureTextBox"
                  Background="Transparent"
                  BorderThickness="0"
                 VerticalContentAlignment="Center"
@@ -131,12 +132,12 @@
                 Margin="5"/>
             </Border>
             <Border Margin="0,0,0,5"
-                    Width="200"
+                    Width="250"
                     Height="40"
                     BorderThickness="1"
                     BorderBrush="Black"
                     CornerRadius="10">
-                <TextBox 
+                <TextBox x:Name="TotalCaloriesTextBox"
                  Background="Transparent"
                  BorderThickness="0"
                 VerticalContentAlignment="Center"
@@ -144,22 +145,122 @@
                 FontFamily="Fonts/#Poppins"
                 Margin="5"/>
             </Border>
-            <Border Margin="0,0,0,5"
-                    Width="200"
-                    Height="40"
-                    BorderThickness="1"
-                    BorderBrush="Black"
-                    CornerRadius="10">
-                <ComboBox x:Name="comboBox"
-                          SelectedIndex="0"
-                          FontFamily="Fonts/#Poppins">
-                    <ComboBoxItem>Item 1</ComboBoxItem>
-                    <ComboBoxItem>Item 2</ComboBoxItem>
-                    <ComboBoxItem>Item 3</ComboBoxItem>
-                </ComboBox>
-            </Border>
-            
-            
+
+            <ComboBox Width="250" Height="40"
+                      x:Name="FoodGroupComboBox">
+                <ComboBox.Resources>
+                    <Style x:Key="ComboBoxToggleButtonStyle" TargetType="ToggleButton">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ToggleButton">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="20" />
+                                        </Grid.ColumnDefinitions>
+                                        <Border Grid.ColumnSpan="2"
+                                    CornerRadius="10"
+                                    Background="Transparent"
+                                    BorderThickness="1"
+                                    BorderBrush="Black" />
+                                        <Path x:Name="Arrow"
+                                  Grid.Column="1"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Center"
+                                  Fill="#333333"
+                                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Arrow" Property="Fill" Value="#FFFFFF" />
+                                        </Trigger>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter TargetName="Arrow" Property="Fill" Value="#FFFFFF" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                    <Style x:Key="CustomComboBoxStyle" TargetType="ComboBox">
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="BorderBrush" Value="Black" />
+                        <Setter Property="BorderThickness" Value="1" />
+                        <Setter Property="FontFamily" Value="Fonts/#Poppins" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ComboBox">
+                                    <Grid>
+                                        <ToggleButton x:Name="ToggleButton"
+                                          ClickMode="Press"
+                                          Style="{StaticResource ComboBoxToggleButtonStyle}"
+                                          IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" />
+                                        <ContentPresenter x:Name="ContentSite"
+                                              IsHitTestVisible="False"
+                                              Content="{TemplateBinding SelectionBoxItem}"
+                                              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                              VerticalAlignment="Center"
+                                              HorizontalAlignment="Left" />
+                                        <Popup x:Name="Popup"
+                                   AllowsTransparency="True"
+                                   IsOpen="{TemplateBinding IsDropDownOpen}"
+                                   Placement="Bottom"
+                                   Focusable="False"
+                                   PopupAnimation="Slide">
+                                            <Border x:Name="DropDownBorder"
+                                        Background="#FFFFFF"
+                                        BorderBrush="Black"
+                                        BorderThickness="1"
+                                        CornerRadius="3">
+                                                <ScrollViewer Margin="4,6,4,6"
+                                                  SnapsToDevicePixels="True">
+                                                    <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                                </ScrollViewer>
+                                            </Border>
+                                        </Popup>
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Opacity" Value="0.3" />
+                                            <Setter TargetName="ContentSite" Property="Opacity" Value="0.3" />
+                                        </Trigger>
+                                        <Trigger Property="IsGrouping" Value="True">
+                                            <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
+                                        </Trigger>
+                                        <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="True">
+                                            <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0" />
+                                        </Trigger>
+                                        <Trigger Property="IsEditable" Value="True">
+                                            <Setter Property="IsTabStop" Value="False" />
+                                            <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ComboBox.Resources>
+                <ComboBox.Style>
+                    <StaticResource ResourceKey="CustomComboBoxStyle" />
+                </ComboBox.Style>
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" VerticalAlignment="Center" Margin="5,0,0,0" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.Items>
+                    <sys:String>Starchy Foods</sys:String>
+                    <sys:String>Vegetables and Fruits</sys:String>
+                    <sys:String>Dry beans, peas, lentils and soya</sys:String>
+                    <sys:String>Chicken, fish, meat and eggs</sys:String>
+                    <sys:String>Milk and dairy products</sys:String>
+                    <sys:String>Fats and oil</sys:String>
+                    <sys:String>Water</sys:String>
+                </ComboBox.Items>
+            </ComboBox>
+
+
         </StackPanel>
         
 
@@ -184,7 +285,7 @@
                     Background="DarkGray"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20" Click="CancelButton_Click_1">
+                    Margin="20" Click="CancelButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"
@@ -205,7 +306,7 @@
                     Background="#0d6efd"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20">
+                    Margin="20" Click="NextButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"

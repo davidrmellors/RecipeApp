@@ -31,11 +31,11 @@ namespace RecipeAppGUI
             mainWindow.Show();
         }
 
-        private void CancelButton_Click_1(object sender, RoutedEventArgs e)
+        private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            this.Hide();
+            Ingredients ingredients = new Ingredients();
+            ingredients.Show();
         }
     }
 }

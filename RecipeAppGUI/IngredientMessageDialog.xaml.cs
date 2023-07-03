@@ -15,24 +15,24 @@ using System.Windows.Shapes;
 namespace RecipeAppGUI
 {
     /// <summary>
-    /// Interaction logic for Ingredients.xaml
+    /// Interaction logic for IngredientMessageDialog.xaml
     /// </summary>
-    public partial class Ingredients : Window
+    public partial class IngredientMessageDialog : Window
     {
-        public Ingredients()
+        public IngredientMessageDialog()
         {
             InitializeComponent();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void YesButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
 
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        private void NoButton_Click(object sender, RoutedEventArgs e)
         {
-            IngredientMessageDialog dialog = new IngredientMessageDialog();
-            dialog.ShowDialog();
+            this.Close();
         }
     }
 }
