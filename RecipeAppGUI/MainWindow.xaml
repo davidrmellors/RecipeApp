@@ -31,7 +31,7 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Recipes"
+                <TextBlock Text="RecipeApp"
                        Grid.Column="0"
                        FontSize="28"
                        Foreground="White"

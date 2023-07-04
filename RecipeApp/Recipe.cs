@@ -63,16 +63,19 @@ namespace RecipeApp
             Steps = new List<Step>();
         }
 
+        //adds a new ingredient to the Ingredient object
         public void AddIngredient(Ingredient ingredient)
         {
             Ingredients.Add(ingredient);
         }
 
+        //Adds a new step to the step list
         public void AddStep(string description)
         {
             Steps.Add(new Step { Description = description });
         }
 
+        //scales all recipe ingredient quantities by the chosen scale factor
         public void Scale(double factor)
         {
             foreach (Ingredient ingredient in Ingredients)
@@ -81,6 +84,7 @@ namespace RecipeApp
             }
         }
 
+        //Resets all ingredient quantities for a recipe to their original value
         public void ResetQuantities()
         {
             foreach (Ingredient ingredient in Ingredients)

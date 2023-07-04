@@ -23,6 +23,7 @@ namespace RecipeApp
             originalQuantity = quantity;
         }
 
+        //Resets the ingredient Quantity for a chosen ingredient
         public void ResetQuantity()
         {
             Quantity = originalQuantity;

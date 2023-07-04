@@ -10,8 +10,8 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+// Code Attribution
+// Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
 
 namespace RecipeAppGUI
 {
@@ -29,6 +29,7 @@ namespace RecipeAppGUI
             Step = new Step();
         }
 
+        //set user entered step description to Step object Description
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(descriptionTextBox.Text))

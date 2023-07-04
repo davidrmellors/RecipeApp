@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Code Attribution
+// Troelsen, A. and Japikse, P. (2021). Pro C# 9 with .NET 5 : foundational principles and practices in programming. 10th ed. Berkeley, Ca: Apress L. P., . Copyright.
+
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace RecipeAppGUI
 {
@@ -26,6 +19,7 @@ namespace RecipeAppGUI
             InitializeComponent();
         }
 
+        //display scale factors to user and store chosen factor in double Factor
         private void ScalingFactorButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
