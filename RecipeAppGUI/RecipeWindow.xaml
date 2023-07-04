@@ -4,48 +4,228 @@
         Title="Add Recipe" Height="600" Width="920"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Content="Name:" Margin="10"/>
-        <TextBox x:Name="nameTextBox" Margin="10" Grid.Row="1"/>
-        <Label Content="Ingredients:" Margin="10" Grid.Row="2"/>
-        <DataGrid x:Name="ingredientsDataGrid" Margin="10" Grid.Row="3" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
-                <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
-                <DataGridTextColumn Header="Food Group" Binding="{Binding FoodGroup}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Grid.Row="4" Margin="10">
-            <Button Content="Add Ingredient" Margin="0,0,0,10" Click="AddIngredientButton_Click"/>
-            <Button Content="Remove Ingredient" Margin="0,0,0,10" Click="RemoveIngredientButton_Click"/>
+
+        <Border Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Background="#14263a">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Ingredients"
+                       Grid.Column="0"
+                       FontSize="28"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       Margin="20,0,0,0" />
+            </Grid>
+
+        </Border>
+        
+        
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right">
+
+            <Label Content="Recipe Name"
+               
+               Margin="0,0,40,5"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20" />
+            
         </StackPanel>
-        <Label Content="Steps:" Margin="10" Grid.Row="5"/>
-        <ListBox x:Name="stepsListBox" Margin="10" Grid.Row="6">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <ListBoxItem Content="{Binding Description}"/>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Row="7" Margin="10">
-            <Button Content="Add Step" Margin="0,0,0,10" Click="AddStepButton_Click"/>
-            <Button Content="Remove Step" Margin="0,0,0,10" Click="RemoveStepButton_Click"/>
+
+        <StackPanel HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    VerticalAlignment="Center">
+            <Border Margin="0,0,0,5"
+                    Width="250"
+                    Height="40"
+                    BorderThickness="1"
+                    BorderBrush="Black"
+                    CornerRadius="10">
+                <TextBox x:Name="nameTextBox" 
+                         Background="Transparent"
+                         BorderThickness="0"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Left"
+                         FontFamily="Fonts/#Poppins"
+                         Margin="5"/>
+            </Border>
+            
         </StackPanel>
-        <StackPanel Grid.Row="8" Margin="10">
-            <Button Content="Save" Margin="0,0,0,10" Click="SaveButton_Click"/>
-            <Button Content="Cancel" Click="CancelButton_Click"/>
+
+            <StackPanel Orientation="Vertical"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    VerticalAlignment="top"
+                    HorizontalAlignment="Center">
+
+            <Label Content="Ingredients:"
+                   HorizontalAlignment="Center"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20" />
+            <DataGrid x:Name="ingredientsDataGrid" Margin="10" 
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
+                    <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
+                    <DataGridTextColumn Header="Food Group" Binding="{Binding FoodGroup}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <Button Content="Add Ingredient" 
+                    Click="AddIngredientButton_Click"
+                    Height="30"
+                    Width="100"
+                    Margin="10"
+                    BorderThickness="0"
+                    Background="#0d6efd"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins"
+                    FontSize="10">
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="5"
+                                RadiusY="5"
+                                Rect="0,0,100,30"/>
+                    </Button.Clip>
+                </Button>
+
+
+                <Button Content="Remove Ingredient" 
+                        Click="RemoveIngredientButton_Click"
+                        Height="30"
+                        Width="100"
+                        Margin="10"
+                        BorderThickness="0"
+                        Background="IndianRed"
+                        Foreground="white"
+                        FontFamily="Fonts/#Poppins"
+                        FontSize="10">
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="5"
+                                    RadiusY="5"
+                                    Rect="0,0,100,30"/>
+                    </Button.Clip>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    VerticalAlignment="top"
+                    HorizontalAlignment="Center">
+            <Label Content="Steps:"
+                   HorizontalAlignment="Center"
+               FontFamily="Fonts/#Poppins"
+               FontSize="20" />
+            <ListBox x:Name="stepsListBox" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <ListBoxItem Content="{Binding Description}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Grid.Row="7" Margin="10">
+
+                <Button Content="Add Step" 
+                        Click="AddStepButton_Click"
+                        Height="30"
+                        Width="100"
+                        Margin="10"
+                        BorderThickness="0"
+                        Background="#0d6efd"
+                        Foreground="white"
+                        FontFamily="Fonts/#Poppins"
+                        FontSize="10">
+                        <Button.Clip>
+                            <RectangleGeometry RadiusX="5"
+                                    RadiusY="5"
+                                    Rect="0,0,100,30"/>
+                        </Button.Clip>
+                </Button>
+                
+                <Button Content="Remove Step"
+                        Click="RemoveStepButton_Click"
+                        Height="30"
+                        Width="100"
+                        Margin="10"
+                        BorderThickness="0"
+                        Background="IndianRed"
+                        Foreground="white"
+                        FontFamily="Fonts/#Poppins"
+                        FontSize="10">
+                    <Button.Clip>
+                        <RectangleGeometry RadiusX="5"
+                                        RadiusY="5"
+                                        Rect="0,0,100,30"/>
+                    </Button.Clip>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        
+        <StackPanel Grid.Row="3" Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalAlignment="Center"
+                    Margin="5" Orientation="Horizontal">
+            <Button Content="Cancel" Click="CancelButton_Click"
+                    Height="30"
+                    Width="100"
+                    BorderThickness="0"
+                    Background="DarkGray"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins"
+                    Margin="5">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="5"
+                                RadiusY="5"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+            <Button Content="Save" Click="SaveButton_Click"
+                    Height="30"
+                    Width="100"
+                    Margin="5"
+                    BorderThickness="0"
+                    Background="#0d6efd"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="5"
+                                RadiusY="5"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+            
         </StackPanel>
     </Grid>
 </Window>

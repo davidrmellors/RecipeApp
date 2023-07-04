@@ -66,6 +66,7 @@ namespace RecipeAppGUI
                                   select recipe;
 
             recipesDataGrid.ItemsSource = filteredRecipes;
+
         }
 
         private void FilterByFoodGroupButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +94,8 @@ namespace RecipeAppGUI
         private void ClearFilterButton_Click(object sender, RoutedEventArgs e)
         {
             recipesDataGrid.ItemsSource = recipes;
+            ingredientsDataGrid.ItemsSource = null;
+            stepsDataGrid.ItemsSource = null;
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -121,7 +124,8 @@ namespace RecipeAppGUI
                 if (factor == 0.5 || factor == 2 || factor == 3)
                 {
                     selectedRecipe.Scale(factor);
-                    recipesDataGrid.Items.Refresh();
+                    ingredientsDataGrid.ItemsSource = selectedRecipe.Ingredients;
+                    ingredientsDataGrid.Items.Refresh();
                 }
                 else
                 {
@@ -144,18 +148,24 @@ namespace RecipeAppGUI
                 ingredient.ResetQuantity();
             }
 
-            recipesDataGrid.Items.Refresh();
+            ingredientsDataGrid.ItemsSource = selectedRecipe.Ingredients;
+            ingredientsDataGrid.Items.Refresh();
         }
 
         private void ViewRecipeButton_Click(object sender, RoutedEventArgs e)
         {
+            Recipe selectedRecipe = recipesDataGrid.SelectedItem as Recipe;
 
-            if (recipes.Count > 0)
+            if (selectedRecipe == null)
             {
-                Recipe selectedRecipe = recipesDataGrid.SelectedItem as Recipe;
-                ingredientsDataGrid.ItemsSource = selectedRecipe.Ingredients;
+                MessageBox.Show("Please select a recipe to scale.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            
+
+            ingredientsDataGrid.ItemsSource = selectedRecipe.Ingredients;
+            stepsDataGrid.ItemsSource = selectedRecipe.Steps;
+            ingredientsDataGrid.Items.Refresh();
+
         }
     }
 }
