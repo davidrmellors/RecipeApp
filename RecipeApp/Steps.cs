@@ -5,22 +5,9 @@ using System;
 namespace RecipeApp
 {
     //Class used to store all Step details
-    public class Steps
+    public class Step
     {
-        public string Step;
-        public int StepNum;
-
-        //string step entered by user is taken as argument and then stored locally
-        public Steps(string step)
-        {
-            Step = step;
-        }
-
-        //method used to return step details as string
-        public string toString()
-        {
-            string output = string.Format("{0}", Step);
-            return output;
-        }
+        //string used to store step description
+        public string Description { get; set; }
     }
 }
