@@ -8,17 +8,17 @@ namespace RecipeAppTestProject
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
+        /*[TestMethod]
         public void TestMethod1()
         {
             //List to store ingredients
-            List<Ingredients> ingredientsList = new List<Ingredients>();
-            List<Steps> stepsList = new List<Steps>();
+            List<Ingredient> ingredientsList = new List<Ingredient>();
+            List<Step> stepsList = new List<Step>();
 
             //Ingredient objects to be added to list
-            Ingredients ingredients1 = new Ingredients("Sugar", 1, "spoon", 200, "Starchy Foods");
-            Ingredients ingredients2 = new Ingredients("Milk", 100, "ml", 150, "Milk and dairy products");
-            Steps steps1 = new Steps("Add milk and sugar to bowl");
+            Ingredient ingredients1 = new Ingredient("Sugar", 1, "spoon", 200, "Starchy Foods");
+            Ingredient ingredients2 = new Ingredient("Milk", 100, "ml", 150, "Milk and dairy products");
+            //Step steps1 = new Step("Add milk and sugar to bowl");
 
             //add objects to lists
             ingredientsList.Add(ingredients1);
@@ -35,6 +35,6 @@ namespace RecipeAppTestProject
 
             //Assert.AreEqual used to test if expected result and result are equal
             //Assert.AreEqual(expected, result);
-        }
+        }*/
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Administrator\source\repos\DavidMellors-ST10241466-PROG6221POE-Part1\RecipeAppGUI\App.xaml
-6-829463751
+5635768366
 
-111285334679
+10-215806170
 14-1753281246
-AddRecipe.xaml;IngredientMessageDialog.xaml;IngredientsWindow.xaml;MainWindow.xaml;StepsMessageDialog.xaml;StepsWindow.xaml;
+IngredientWindow.xaml;MainWindow.xaml;RecipeWindow.xaml;ScaleRecipeWindow.xaml;StepWindow.xaml;
 
-True
+False
 

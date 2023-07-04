@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B274E3D1-6F92-4171-A878-00E8461E3A6E}</ProjectGuid>
+    <ProjectGuid>{42611938-B78A-4B5D-84A2-13BEE200B413}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>RecipeAppGUI</RootNamespace>
     <AssemblyName>RecipeAppGUI</AssemblyName>
@@ -55,21 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="StepsMessageDialog.xaml.cs">
-      <DependentUpon>StepsMessageDialog.xaml</DependentUpon>
+    <Compile Include="IngredientWindow.xaml.cs">
+      <DependentUpon>IngredientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StepsWindow.xaml.cs">
-      <DependentUpon>StepsWindow.xaml</DependentUpon>
+    <Compile Include="RecipeWindow.xaml.cs">
+      <DependentUpon>RecipeWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddRecipe.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IngredientMessageDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="IngredientsWindow.xaml">
+    <Compile Include="ScaleRecipeWindow.xaml.cs">
+      <DependentUpon>ScaleRecipeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StepWindow.xaml.cs">
+      <DependentUpon>StepWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="IngredientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,28 +75,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddRecipe.xaml.cs">
-      <DependentUpon>AddRecipe.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IngredientMessageDialog.xaml.cs">
-      <DependentUpon>IngredientMessageDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IngredientsWindow.xaml.cs">
-      <DependentUpon>IngredientsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StepsMessageDialog.xaml">
+    <Page Include="RecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StepsWindow.xaml">
+    <Page Include="ScaleRecipeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StepWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,7 +114,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\Poppins-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -132,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RecipeApp\RecipeApp.csproj">
-      <Project>{a4fb3dd9-1757-42c9-81d3-63a7ac86eda7}</Project>
+      <Project>{a4d443ab-b4a8-47aa-aa5f-103dfcec73ca}</Project>
       <Name>RecipeApp</Name>
     </ProjectReference>
   </ItemGroup>

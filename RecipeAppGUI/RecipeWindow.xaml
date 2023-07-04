@@ -1,0 +1,51 @@
+﻿<Window x:Class="RecipeAppGUI.RecipeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Recipe" Height="600" Width="920"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Name:" Margin="10"/>
+        <TextBox x:Name="nameTextBox" Margin="10" Grid.Row="1"/>
+        <Label Content="Ingredients:" Margin="10" Grid.Row="2"/>
+        <DataGrid x:Name="ingredientsDataGrid" Margin="10" Grid.Row="3" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
+                <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
+                <DataGridTextColumn Header="Food Group" Binding="{Binding FoodGroup}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="4" Margin="10">
+            <Button Content="Add Ingredient" Margin="0,0,0,10" Click="AddIngredientButton_Click"/>
+            <Button Content="Remove Ingredient" Margin="0,0,0,10" Click="RemoveIngredientButton_Click"/>
+        </StackPanel>
+        <Label Content="Steps:" Margin="10" Grid.Row="5"/>
+        <ListBox x:Name="stepsListBox" Margin="10" Grid.Row="6">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <ListBoxItem Content="{Binding Description}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="7" Margin="10">
+            <Button Content="Add Step" Margin="0,0,0,10" Click="AddStepButton_Click"/>
+            <Button Content="Remove Step" Margin="0,0,0,10" Click="RemoveStepButton_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Margin="10">
+            <Button Content="Save" Margin="0,0,0,10" Click="SaveButton_Click"/>
+            <Button Content="Cancel" Click="CancelButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
