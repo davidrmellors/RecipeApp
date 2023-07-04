@@ -61,7 +61,7 @@ namespace RecipeApp
                             Console.WriteLine("-----------------");
                             Console.WriteLine("     {0}    ", recipeName);
                             Console.WriteLine("-----------------\n");
-                            Console.WriteLine(recipe.toString());
+                            //Console.WriteLine(recipe.toString());
                         }
                     }
                     Console.WriteLine("--------------------");

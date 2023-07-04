@@ -14,6 +14,20 @@ namespace RecipeApp
         public string recipeName;
         public ObservableCollection<Ingredients> ingredientsList = new ObservableCollection<Ingredients>();
         public ObservableCollection<Steps> stepsList = new ObservableCollection<Steps>();
+        public double Calories
+        {
+            get
+            {
+                double totalCalories = 0;
+
+                foreach (Ingredients ingredient in ingredientsList)
+                {
+                    totalCalories += ingredient.IngredientCalories;
+                }
+
+                return totalCalories;
+            }
+        }
 
         //Ingredients[] and Steps[] taken as parameters in Recipe constructor
         //In order to group both arrays into one recipe object
@@ -24,8 +38,9 @@ namespace RecipeApp
             this.stepsList = stepsList;
         }
 
+
         //Calculate total calories within a recipe
-        public double RecipeCalories(List<Ingredients> ingredientsList)
+        public double RecipeCalories(ObservableCollection<Ingredients> ingredientsList)
         {
             double totalCalories = 0;
             foreach (Ingredients ingredients in ingredientsList)
@@ -37,7 +52,7 @@ namespace RecipeApp
         }
 
         //method used to return recipe details as a string
-        public string toString()
+        /*public string toString()
         {
             int recipeNum = 1;
             string output = "";
@@ -71,6 +86,6 @@ namespace RecipeApp
             }
 
             return output;
-        }
+        }*/
     }
 }

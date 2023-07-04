@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static RecipeAppGUI.MainWindow;
 
 namespace RecipeAppGUI
 {
@@ -28,34 +29,62 @@ namespace RecipeAppGUI
         public static ObservableCollection<string> recipeNamesList = new ObservableCollection<string>();
         public static ObservableCollection<string> ingredientNamesList = new ObservableCollection<string>();
         public static ObservableCollection<string> stepsDescList = new ObservableCollection<string>();
-
-        public MainWindow(ObservableCollection<Recipe> recipes)
+        private CollectionViewSource _collectionViewSource;
+        public MainWindow(Recipe recipe)
         {
             InitializeComponent();
 
             recipeNamesList.Clear();
+            ingredientsList.Clear();
+            stepsList.Clear();
 
-            recipeList = recipes;
 
-            foreach(Recipe recipe in recipeList)
+            recipeList.Add(recipe);
+
+            /*foreach(Recipe recipes in recipeList)
             {
-                recipeNamesList.Add(recipe.recipeName.ToString());
-            }
+                RecipeDataGrid recipeData = new RecipeDataGrid();
 
-            RecipeListBox.ItemsSource = recipeNamesList;
+                recipeData.RecipeName = recipes.recipeName;
+                recipeData.RecipeCalories = recipes.Calories;
+                foreach(Ingredients ing in recipes.ingredientsList)
+                {
+                    recipeData.IngredientName
+                }
+
+            }*/
+            RecipeDataGrid.ItemsSource = recipeList;
+
         }
+
+        /*public class RecipeDataGrid
+        {
+            public string RecipeName { get; set; }
+            public double RecipeCalories { get; set; }
+            public string IngredientName { get; set; }
+            public string IngredientUnitOfMeasure { get; set; }
+            public double IngredientQty { get; set; }
+            public double IngredientCalories { get; set; }
+            public string IngredientFoodGroup { get; set; }
+        }*/
+        
+        public MainWindow() { InitializeComponent(); }
 
         private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
             AddRecipe addRecipe = new AddRecipe();
             addRecipe.Show();
-
         }
 
         public void CheckRecipes()
         {
 
+        }
+
+        private void ViewRecipeButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

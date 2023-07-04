@@ -1,6 +1,7 @@
 ﻿using RecipeApp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,6 @@ namespace RecipeAppGUI
     /// </summary>
     public partial class AddRecipe : Window
     {
-
         public static string RecipeName;
         public static int NumberOfIngredients;
         public static int NumberOfSteps;
@@ -80,9 +80,9 @@ namespace RecipeAppGUI
         {
             ErrorStackPanel.Visibility = Visibility.Hidden;
 
-            if(RecipeNameTextBox.Text.Length == 0)
+            if(RecipeNameTextBox.Text.Length == 0 || IngredientsListBox.Items.Count == 0 || StepsListBox.Items.Count == 0)
             {
-                ErrorLabel.Content = "Recipe name cannot be null";
+                ErrorLabel.Content = "all fields are required";
                 ErrorStackPanel.Visibility= Visibility.Visible;
                 return;
             }
@@ -90,6 +90,11 @@ namespace RecipeAppGUI
             string recipeName = RecipeNameTextBox.Text.ToString();
 
             Recipe recipe = new Recipe(recipeName, MainWindow.ingredientsList, MainWindow.stepsList);
+
+            MainWindow mainWindow = new MainWindow(recipe);
+            this.Close();
+            mainWindow.Show();
+
         }
     }
 }

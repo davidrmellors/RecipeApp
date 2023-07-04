@@ -84,8 +84,7 @@
         <StackPanel Grid.Row="2"
                     Grid.Column="0"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="10">
+                    HorizontalAlignment="Center">
             
             <Label Content="List Of Ingredients"
                    FontFamily="Fonts/#Poppins"
@@ -123,8 +122,7 @@
         <StackPanel Grid.Row="2"
                     Grid.Column="1"
                     VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Margin="10">
+                    HorizontalAlignment="Center">
             
             <Label Content="List Of Steps"
                    FontFamily="Fonts/#Poppins"
@@ -162,7 +160,7 @@
 
         <StackPanel x:Name="ErrorStackPanel" 
             Orientation="Horizontal"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     VerticalAlignment="Bottom"
@@ -231,7 +229,7 @@
                     Background="#0d6efd"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20">
+                    Margin="20" Click="SubmitButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"

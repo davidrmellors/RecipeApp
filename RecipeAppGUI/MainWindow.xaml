@@ -3,33 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RecipeAppGUI"
+        xmlns:local="clr-namespace:RecipeAppGUI" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Recipes" Height="600" Width="920"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Fonts/#Poppins">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="200"/>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="400"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="100"/>
-            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0"
                 Grid.Column="0"
-                Grid.ColumnSpan="3"
+                Grid.ColumnSpan="4"
                 Background="#14263a">
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -48,19 +48,81 @@
 
         </Border>
 
-        <ListBox x:Name="RecipeListBox" 
-                Grid.Row="1"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="3"
-                 Height="350"
-                 Width="300"
-                 Margin="0,0,0,0"
-                 FontFamily="Fonts/#Poppins" />
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Label Content="Recipe List"
+                   FontFamily="Fonts/#Poppins"
+                   FontSize="20"
+                   HorizontalContentAlignment="Center"/>
+            <DataGrid x:Name="RecipeDataGrid" 
+                 Height="300"
+                 FontFamily="Fonts/#Poppins" 
+                 HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                
+                <!--Styling-->
+                
+                <!-- Column Header Text & Bindings-->
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTemplateColumn Header="Ingredients">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Ingredients}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding Quantity}"/>
+                                                <TextBlock Text="{Binding Unit}"/>
+                                                <TextBlock Text="{Binding Calories}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Steps">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Steps}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Step}"/>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Calories" Binding="{Binding Calories}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                
+            </StackPanel>
+            
+
+            
+            
+        </StackPanel>
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2"
                     Grid.Column="0"
-                    Grid.ColumnSpan="3"
+                    Grid.ColumnSpan="2"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             
@@ -88,7 +150,7 @@
                     Background="#0d6efd"
                     Foreground="white"
                     FontFamily="Fonts/#Poppins"
-                    Margin="20,0,0,0">
+                    Margin="20,0,0,0" Click="ViewRecipeButton_Click">
                 <Button.Clip>
                     <RectangleGeometry RadiusX="10"
                                 RadiusY="10"
@@ -98,5 +160,49 @@
             
 
         </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+            <Button x:Name="ScaleRecipeButton"
+                    Height="30"
+                    Width="100"
+                    Content="Add Recipe"
+                    BorderThickness="0"
+                    Background="#0d6efd"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins" 
+                    Click="AddRecipeButton_Click">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                RadiusY="10"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+
+            <Button x:Name="ScalRecipeButton"
+                    Height="30"
+                    Width="100"
+                    Content="View Recipe"
+                    BorderThickness="0"
+                    Background="#0d6efd"
+                    Foreground="white"
+                    FontFamily="Fonts/#Poppins"
+                    Margin="20,0,0,0">
+                <Button.Clip>
+                    <RectangleGeometry RadiusX="10"
+                                RadiusY="10"
+                                Rect="0,0,100,30"/>
+                </Button.Clip>
+            </Button>
+
+
+        </StackPanel>
+
+
     </Grid>
 </Window>
