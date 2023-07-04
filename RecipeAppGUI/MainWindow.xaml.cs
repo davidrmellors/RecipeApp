@@ -167,5 +167,23 @@ namespace RecipeAppGUI
             ingredientsDataGrid.Items.Refresh();
 
         }
+
+        private void DeleteRecipeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Recipe selectedRecipe = recipesDataGrid.SelectedItem as Recipe;
+
+            if (selectedRecipe != null)
+            {
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the recipe '{selectedRecipe.Name}'?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    recipes.Remove(selectedRecipe);
+                    ingredientsDataGrid.ItemsSource = null;
+                    stepsDataGrid.ItemsSource = null;
+                    recipesDataGrid.ItemsSource = recipes;
+                }
+            }
+        }
     }
 }

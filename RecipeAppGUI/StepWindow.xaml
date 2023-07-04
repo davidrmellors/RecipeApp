@@ -73,40 +73,6 @@
             </Border>
         </StackPanel>
 
-
-
-        <StackPanel x:Name="ErrorStackPanel" 
-                    Orientation="Horizontal"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Center"
-                    Background="#ffecb5"
-                    Visibility="Hidden">
-            <Label x:Name="ErrorLabel"
-                   Foreground="#664d03"
-                   Content=""
-                   FontWeight="Bold"
-                   FontSize="14"
-                   VerticalContentAlignment="Center"
-                   HorizontalContentAlignment="Center"/>
-            <Button x:Name="CloseErrorButton"
-                    Content="x"
-                    Width="50"
-                    FontSize="28"
-                    VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center"
-                    BorderThickness="0"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Left"
-                    Background="Transparent"
-                    Foreground="#664d03" FontFamily="Poppins" Click="CloseErrorButton_Click"
-                    >
-
-            </Button>
-        </StackPanel>
-
         <StackPanel Orientation="Horizontal"
                     Grid.Row="3"
                     Grid.Column="0"
