@@ -11,81 +11,84 @@ namespace RecipeApp
     //Class for storing all recipe details
     public class Recipe
     {
-        public string recipeName;
-        public ObservableCollection<Ingredients> ingredientsList = new ObservableCollection<Ingredients>();
-        public ObservableCollection<Steps> stepsList = new ObservableCollection<Steps>();
-        public double Calories
+        public string Name { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
+        public List<Step> Steps { get; set; }
+        public int Calories
         {
             get
             {
-                double totalCalories = 0;
+                int totalCalories = 0;
 
-                foreach (Ingredients ingredient in ingredientsList)
+                foreach (Ingredient ingredient in Ingredients)
                 {
-                    totalCalories += ingredient.IngredientCalories;
+                    totalCalories += ingredient.Calories;
                 }
 
                 return totalCalories;
             }
         }
 
-        //Ingredients[] and Steps[] taken as parameters in Recipe constructor
-        //In order to group both arrays into one recipe object
-        public Recipe(string recipeName, ObservableCollection<Ingredients> ingredientsList, ObservableCollection<Steps> stepsList)
+        public int NumOfIngredients
         {
-            this.recipeName = recipeName;
-            this.ingredientsList = ingredientsList;
-            this.stepsList = stepsList;
+            get
+            {
+                int numOfIngredients = 0;
+                foreach (Ingredient ingredient in Ingredients)
+                {
+                    numOfIngredients++;
+                }
+
+                return numOfIngredients;
+            }
+        }
+
+        public int NumOfSteps
+        {
+            get
+            {
+                int numOfSteps = 0;
+                foreach (Step step in Steps)
+                {
+                    numOfSteps++;
+                }
+                return numOfSteps;
+            }
+        }
+
+        public Recipe(string name)
+        {
+            Name = name;
+            Ingredients = new List<Ingredient>();
+            Steps = new List<Step>();
+        }
+
+        public void AddIngredient(Ingredient ingredient)
+        {
+            Ingredients.Add(ingredient);
+        }
+
+        public void AddStep(string description)
+        {
+            Steps.Add(new Step { Description = description });
+        }
+
+        public void Scale(double factor)
+        {
+            foreach (Ingredient ingredient in Ingredients)
+            {
+                ingredient.Quantity *= factor;
+            }
+        }
+
+        public void ResetQuantities()
+        {
+            foreach (Ingredient ingredient in Ingredients)
+            {
+                ingredient.ResetQuantity();
+            }
         }
 
 
-        //Calculate total calories within a recipe
-        public double RecipeCalories(ObservableCollection<Ingredients> ingredientsList)
-        {
-            double totalCalories = 0;
-            foreach (Ingredients ingredients in ingredientsList)
-            {
-                totalCalories += ingredients.IngredientCalories;
-            }
-
-            return totalCalories;
-        }
-
-        //method used to return recipe details as a string
-        /*public string toString()
-        {
-            int recipeNum = 1;
-            string output = "";
-
-            int count = 1;
-
-            output += string.Format("Total Calories for recipe: {0}\n", RecipeCalories(ingredientsList));
-
-            double dailyIntakePercent;
-
-            dailyIntakePercent = (RecipeCalories(ingredientsList) / 2000) * 100;
-
-            output += string.Format("This is {0}% of your daily recommended caloric intake\n", dailyIntakePercent);
-
-            RecipeCalories(ingredientsList);
-
-            foreach (Ingredients ingredient in ingredientsList)
-            {
-                output += string.Format("\n[{0}{1} Ingredient]" +
-                    "\n{2}\n\n", count, InputHandler.GetNumberSuffix(count), ingredient.toString());
-                count++;
-            }
-
-            output+=("[Steps]\n");
-            count = 1;
-            foreach (Steps step in stepsList)
-            {
-
-                output += string.Format("{0}: {1}\n", count, step.toString());
-                count++;
-            }
-
-            return output;
-        }*/
     }
 }
