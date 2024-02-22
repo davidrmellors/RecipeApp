@@ -1,4 +1,4 @@
-# ST10241455 PROG6221 POE PART 1
+# ST10241455 PROG6221 Portfolio of Evidence
 [Github Repo](https://github.com/VCCT-PROG6221-2023-Grp3/DavidMellors-ST10241466-PROG6221POE-Part1)
 
 ## 1. About the project
