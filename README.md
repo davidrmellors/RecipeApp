@@ -3,7 +3,7 @@
 
 ## 1. About the project
 
-This is a standalone command line application written in C# that allows users to enter the details for an unlimited number of recipes, display a full recipe, scale the recipe by a factor of 0.5, 2, or 3, reset recipes to the original values, and clear all the data to enter a new recipe. The data is only stored in memory while the software is running.
+This is a .NET Framework Windows Presentation Foundation application that allows users to enter the details for an unlimited number of recipes, display a full recipe, scale the recipe by a factor of 0.5, 2, or 3, reset recipes to the original values, and clear all the data to enter a new recipe. The data is only stored in memory while the software is running.
 
 
 ## 2. Hardware Requirements
