@@ -33,7 +33,7 @@ After the project is built successfully, select "Debug" from the menu bar and th
 
 
 ### 3.3 Usage
-please refer to the User Manual to learn how to use the RecipeApp
+Please refer to the [User Manual](https://drive.google.com/file/d/1pYOtqCFXlwskao_7gkAXWBZE2-loVgl-/view?usp=sharing) to learn how to use the RecipeApp.
 
 ## 4. Updates
 
